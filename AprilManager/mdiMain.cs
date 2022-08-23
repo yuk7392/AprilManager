@@ -40,7 +40,7 @@ namespace AprilManager
             }
             catch (Exception ex)
             {
-                btnChkUpdate.PerformClick();
+                LogMgr.Write(AprCommon.DataLinkObject, ex);
             }
         }
 

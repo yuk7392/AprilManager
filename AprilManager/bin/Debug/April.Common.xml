@@ -1,0 +1,243 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>April.Common</name>
+    </assembly>
+    <members>
+        <member name="F:April.Common.AprilFormBase.NEWLINE">
+            <summary>
+            Environment.NewLine 값
+            </summary>
+        </member>
+        <member name="F:April.Common.AprilFormBase.MOUSE_X">
+            <summary>
+            MousePosition.X 값
+            </summary>
+        </member>
+        <member name="F:April.Common.AprilFormBase.MOUSE_Y">
+            <summary>
+            MousePosition.Y 값
+            </summary>
+        </member>
+        <member name="F:April.Common.frm_CM_EnterBox.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:April.Common.frm_CM_EnterBox.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:April.Common.frm_CM_EnterBox.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:April.Common.frm_CM_Password.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:April.Common.frm_CM_Password.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:April.Common.frm_CM_Password.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:April.Common.DataLinkObject.APPLICATION_APP_DIRECTORY">
+            <summary>
+            로그를 저장하는 C:\/April/ApplicationName 위치
+            </summary>
+        </member>
+        <member name="F:April.Common.RegistryMgr.BASE_PATH">
+            <summary>
+            HKEY_CURRENT_USER\Software\April
+            </summary>
+        </member>
+        <member name="F:April.Common.RegistryMgr.APPLICATION_PATH">
+            <summary>
+            HKEY_CURRENT_USER\Software\April\어플리케이션 이름
+            </summary>
+        </member>
+        <member name="F:April.Common.RegistryMgr.APPLICATION_SETTINGS_PATH">
+            <summary>
+            HKEY_CURRENT_USER\Software\April\Settings, 주로 공통설정에 사용
+            </summary>
+        </member>
+        <member name="F:April.Common.RegistryMgr.APPLICATION_ONLY_SETTINGS_PATH">
+            <summary>
+            HKEY_CURRENT_USER\Software\April\어플리케이션 이름\Settings, 주로 어플리케이션 설정에 사용
+            </summary>
+        </member>
+        <member name="M:April.Common.WinAPI.RegisterHotKey(System.IntPtr,System.Int32,April.Common.WinAPI.KeyModifiers,System.Windows.Forms.Keys)">
+            <summary>
+            단축키 등록
+            <para/>WndProc를 override해서 recv.
+            </summary>
+            <param name="hWnd">this.Handle</param>
+            <param name="id">HotKey, 중복X</param>
+            <param name="fsModifiers">함께 사용할 키</param>
+            <param name="vk">키</param>
+            <returns></returns>
+        </member>
+        <member name="M:April.Common.WinAPI.UnregisterHotKey(System.IntPtr,System.Int32)">
+            <summary>
+            단축키 해제
+            </summary>
+            <param name="hWnd">this.Handle</param>
+            <param name="id">등록한 HotKey</param>
+            <returns></returns>
+        </member>
+        <member name="F:April.Common.frm_CM_AprilScriptMgr.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:April.Common.frm_CM_AprilScriptMgr.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:April.Common.frm_CM_AprilScriptMgr.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:April.Common.frm_CM_DateTimePicker.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:April.Common.frm_CM_DateTimePicker.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:April.Common.frm_CM_DateTimePicker.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:April.Common.frm_CM_Localization.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:April.Common.frm_CM_Localization.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:April.Common.frm_CM_Localization.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:April.Common.frm_CM_WaitScreen.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:April.Common.frm_CM_WaitScreen.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:April.Common.frm_CM_WaitScreen.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:April.Common.Properties.Resources">
+            <summary>
+              지역화된 문자열 등을 찾기 위한 강력한 형식의 리소스 클래스입니다.
+            </summary>
+        </member>
+        <member name="P:April.Common.Properties.Resources.ResourceManager">
+            <summary>
+              이 클래스에서 사용하는 캐시된 ResourceManager 인스턴스를 반환합니다.
+            </summary>
+        </member>
+        <member name="P:April.Common.Properties.Resources.Culture">
+            <summary>
+              이 강력한 형식의 리소스 클래스를 사용하여 모든 리소스 조회에 대한 현재 스레드의 CurrentUICulture
+              속성을 재정의합니다.
+            </summary>
+        </member>
+        <member name="P:April.Common.Properties.Resources.en_US">
+             <summary>
+               Application_Name=Application Name
+            ApsFilter=April Script Type(*.aps)|*.aps
+            ApsTitle=April Script Manager
+            btnClear=CLEAR
+            btnOpen=OPEN
+            btnRun=RUN
+            btnSave=SAVE
+            cpBtnAdd=ADD
+            cvBtnAdd=ADD
+            declareBtnEnd=END
+            declareBtnStart=START
+            directoryBtnCreate=CREATE
+            directoryBtnDelete=DELETE
+            directoryBtnMove=MOVE
+            downloadBtnFile=FILE
+            Error_Message=Error Message
+            Error_Report=Error Report
+            etcBtnTo=TO
+            etcBtnUnzip=UNZIP
+            fileBtnCopy=COPY
+            fileBtnCreate=CREATE
+            fileBtnDelete=DELETE
+            fileBtnMove=MOVE
+            FileSavedTo[나머지 문자열은 잘림]&quot;;과(와) 유사한 지역화된 문자열을 찾습니다.
+             </summary>
+        </member>
+        <member name="P:April.Common.Properties.Resources.ko_KR">
+             <summary>
+               =Application_Name=프로그램 이름
+            =ApsFilter=April Script 형식(*.aps)|*.aps
+            =ApsTitle=April Script 관리자
+            =btnClear=초기화
+            =btnOpen=열기
+            =btnRun=실행
+            =btnSave=저장
+            =cpBtnAdd=추가
+            =cvBtnAdd=추가
+            =declareBtnEnd=종료
+            =declareBtnStart=시작
+            =directoryBtnCreate=생성
+            =directoryBtnDelete=삭제
+            =directoryBtnMove=이동
+            =downloadBtnFile=파일
+            =Error_Message=오류 메시지
+            =Error_Report=오류 보고
+            =etcBtnTo=대상
+            =etcBtnUnzip=압축해제
+            =fileBtnCopy=복사
+            =fileBtnCreate=생성
+            =fileBtnDelete=삭제
+            =fileBtnMove=이동
+            =FileSavedTo=파일이 저장된 위치 : 
+            =gbCommonPaths=공통 폴더
+            =gbCo[나머지 문자열은 잘림]&quot;;과(와) 유사한 지역화된 문자열을 찾습니다.
+             </summary>
+        </member>
+    </members>
+</doc>
