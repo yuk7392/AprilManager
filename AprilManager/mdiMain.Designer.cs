@@ -35,7 +35,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1182, 638);
+            this.ClientSize = new System.Drawing.Size(696, 638);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("맑은 고딕", 10F);
             this.IsMdiContainer = true;
