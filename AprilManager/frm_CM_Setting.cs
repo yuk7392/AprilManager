@@ -14,10 +14,12 @@ namespace AprilManager
 {
     public partial class frm_CM_Setting : AprilFormBase
     {
-        string URL_DLL = @"https://github.com/yuk7392/AprilManager/raw/master/AprilManager/bin/Debug/April.Common.dll";
-        string URL_DLLVERSION = @"https://raw.githubusercontent.com/yuk7392/AprilManager/master/AprilManager/Version_DLL.txt";
-        string URL_PROGRAM = @"https://github.com/yuk7392/AprilManager/raw/master/AprilManager/bin/Debug/AprilManager.exe";
-        string URL_PROGRAMVERSION = @"https://raw.githubusercontent.com/yuk7392/AprilManager/master/AprilManager/Version_Program.txt";
+        readonly string URL_DLL = @"https://github.com/yuk7392/AprilManager/raw/master/AprilManager/bin/Debug/April.Common.dll";
+        readonly string URL_DLLVERSION = @"https://raw.githubusercontent.com/yuk7392/AprilManager/master/AprilManager/Version_DLL.txt";
+        readonly string URL_PROGRAM = @"https://github.com/yuk7392/AprilManager/raw/master/AprilManager/bin/Debug/AprilManager.exe";
+        readonly string URL_PROGRAMVERSION = @"https://raw.githubusercontent.com/yuk7392/AprilManager/master/AprilManager/Version_Program.txt";
+
+        RegistryKey cRegKey = RegistryMgr.OpenKey(RegistryMgr.APPLICATION_ONLY_SETTINGS_PATH);
 
         public frm_CM_Setting()
         {
@@ -42,22 +44,16 @@ namespace AprilManager
             }
         }
 
-        private void Save()
+        private void Save(string pSavePath, string pAutoUpdate, string pDLLUrl, string pDLLVerUrl, string pProgramUrl, string pProgramVerUrl)
         {
             try
             {
-                if (!FileMgr.Exists(tbSavePath.Text) || string.IsNullOrEmpty(tbSavePath.Text))
-                {
-                    MsgBoxError("존재하지 않는 경로입니다. 다시 입력하세요.");
-                    return;
-                }
-
-                RegistryKey rKey = RegistryMgr.OpenKey(RegistryMgr.APPLICATION_ONLY_SETTINGS_PATH);
-                RegistryMgr.SetValue(rKey, "SavePath", tbSavePath.Text);
-                RegistryMgr.SetValue(rKey, "AutoUpdate", rbUse.Checked ? "1" : "0");
-                RegistryMgr.SetValue(rKey, "Url_DLL", tbDLLUrl.Text);
-                RegistryMgr.SetValue(rKey, "Url_Version", tbDLLVerUrl.Text);
-                RegistryMgr.SetValue(rKey, "Url_Program", tbProgramUrl.Text);
+                RegistryMgr.SetValue(cRegKey, "SavePath", pSavePath);
+                RegistryMgr.SetValue(cRegKey, "AutoUpdate", pAutoUpdate);
+                RegistryMgr.SetValue(cRegKey, "Url_DLL", pDLLUrl);
+                RegistryMgr.SetValue(cRegKey, "Url_DLL_Version", pDLLVerUrl);
+                RegistryMgr.SetValue(cRegKey, "Url_Program", pProgramUrl);
+                RegistryMgr.SetValue(cRegKey, "Url_Program_Version", pProgramVerUrl);
             }
             catch (Exception ex)
             {
@@ -65,11 +61,19 @@ namespace AprilManager
             }
         }
 
-        private void Load()
+        private void LoadSetting()
         {
             try
             {
+                if (cRegKey == null)
+                    return;
 
+                tbSavePath.Text = RegistryMgr.GetValue(cRegKey, "SavePath");
+                rbUse.Checked = RegistryMgr.GetValue(cRegKey, "AutoUpdate").Equals("1");
+                tbDLLUrl.Text = RegistryMgr.GetValue(cRegKey, "Url_DLL");
+                tbDLLVerUrl.Text = RegistryMgr.GetValue(cRegKey, "Url_DLL_Version");
+                tbProgramUrl.Text = RegistryMgr.GetValue(cRegKey, "Url_Program");
+                tbProgramVerUrl.Text = RegistryMgr.GetValue(cRegKey, "Url_Program_Version");
             }
             catch (Exception ex)
             {
@@ -81,7 +85,17 @@ namespace AprilManager
         {
             try
             {
+                this.DialogResult = DialogResult.OK;
 
+                if (!FileMgr.Exists(tbSavePath.Text) || string.IsNullOrEmpty(tbSavePath.Text))
+                {
+                    MsgBoxError("경로명이 존재하지 않거나 부정확합니다. 다시 입력하세요.");
+                    return;
+                }
+
+                Save(tbSavePath.Text, rbUse.Checked ? "1" : "0", tbDLLUrl.Text, tbDLLVerUrl.Text, tbProgramUrl.Text, tbProgramVerUrl.Text);
+                MsgBoxOK("저장되었습니다.");
+                this.Close();
             }
             catch (Exception ex)
             {
@@ -186,7 +200,29 @@ namespace AprilManager
         {
             try
             {
-                FormMgr.Send_DTO(new DTOEventArgs(this.Name, "mdiMain", "Refresh"));
+                if (this.DialogResult == DialogResult.OK)
+                FormMgr.Send_DTO(new DTOEventArgs(this.Name, "mdiMain", "Refresh", tbSavePath.Text, rbUse.Checked ? "1" : "0", tbDLLUrl.Text, tbDLLVerUrl.Text, tbProgramUrl.Text, tbProgramVerUrl.Text));
+            }
+            catch (Exception ex)
+            {
+                LogMgr.Write(AprCommon.DataLinkObject, ex);
+            }
+        }
+
+        private void frm_CM_Setting_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                if (cRegKey == null)
+                {
+                    cRegKey = RegistryMgr.CreateKey(RegistryMgr.APPLICATION_ONLY_SETTINGS_PATH);
+                    Save(AprCommon.DataLinkObject.APPLICATION_LOCATION_WITHOUT_EXENAME, rbUse.Checked ? "1" : "0", URL_DLL, URL_DLLVERSION, URL_PROGRAM, URL_PROGRAMVERSION);
+                    LoadSetting();
+                }
+                else
+                {
+                    LoadSetting();
+                }
             }
             catch (Exception ex)
             {

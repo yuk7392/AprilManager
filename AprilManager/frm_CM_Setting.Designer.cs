@@ -402,6 +402,7 @@
             this.ShowIcon = false;
             this.Text = "설정";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frm_CM_Setting_FormClosing);
+            this.Load += new System.EventHandler(this.frm_CM_Setting_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);

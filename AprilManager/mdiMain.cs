@@ -17,6 +17,15 @@ namespace AprilManager
         bool cInternetConnected = false;
         RegistryKey cRegKey = RegistryMgr.OpenKey(RegistryMgr.APPLICATION_ONLY_SETTINGS_PATH);
 
+        // Constraints
+        string SAVEPATH = string.Empty;
+        string AUTOUPDATE = string.Empty;
+        string URL_DLL = string.Empty;
+        string URL_DLLVERSION = string.Empty;
+        string URL_PROGRAM = string.Empty;
+        string URL_PROGRAMVERSION = string.Empty;
+        //
+
         public mdiMain()
         {
             InitializeComponent();
@@ -34,8 +43,16 @@ namespace AprilManager
                     case "frm_CM_Setting":
                         if (e.MESSAGE.ToUpper().Equals("REFRESH"))
                         {
-                            MsgBoxOK("test");
+                            SetConstraintValue((string)e.dataObject[0], // SavePath
+                                              (string)e.dataObject[1], // AutoUpdate
+                                              (string)e.dataObject[2], // DLL URL
+                                              (string)e.dataObject[3], // DLL ver Url
+                                              (string)e.dataObject[4], // Program URL
+                                              (string)e.dataObject[5]); // Program Ver URL
+
+                            cRegKey = RegistryMgr.OpenKey(RegistryMgr.APPLICATION_ONLY_SETTINGS_PATH);
                         }
+                           
                         break;
                 }
             }
@@ -57,7 +74,8 @@ namespace AprilManager
 
                 if (cRegKey == null)
                     btnSetting.PerformClick();
-
+                else
+                    SetConstraintValue();
             }
             catch (Exception ex)
             {
@@ -107,6 +125,40 @@ namespace AprilManager
             try
             {
                 FormMgr.ShowForm("frm_CM_Setting", false, this, new DTOEventArgs(this.Name, "frm_CM_Setting", string.Empty));
+            }
+            catch (Exception ex)
+            {
+                LogMgr.Write(AprCommon.DataLinkObject, ex);
+            }
+        }
+
+        private void SetConstraintValue(string pSavePath, string pAutoUpdate, string pDLLUrl, string pDllVerUrl, string pProgramUrl, string pProgramVerUrl)
+        {
+            try
+            {
+                SAVEPATH = pSavePath;
+                AUTOUPDATE = pAutoUpdate;
+                URL_DLL = pDLLUrl;
+                URL_DLLVERSION = pDllVerUrl;
+                URL_PROGRAM = pProgramUrl;
+                URL_PROGRAMVERSION = pProgramVerUrl;
+            }
+            catch (Exception ex)
+            {
+                LogMgr.Write(AprCommon.DataLinkObject, ex);
+            }
+        }
+
+        private void SetConstraintValue()
+        {
+            try
+            {
+                SAVEPATH = RegistryMgr.GetValue(cRegKey, "SavePath");
+                AUTOUPDATE = RegistryMgr.GetValue(cRegKey, "AutoUpdate");
+                URL_DLL = RegistryMgr.GetValue(cRegKey, "Url_DLL");
+                URL_DLLVERSION = RegistryMgr.GetValue(cRegKey, "Url_DLL_Version");
+                URL_PROGRAM = RegistryMgr.GetValue(cRegKey, "Url_Program");
+                URL_PROGRAMVERSION = RegistryMgr.GetValue(cRegKey, "Url_Program_Version");
             }
             catch (Exception ex)
             {
