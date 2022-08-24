@@ -95,7 +95,7 @@ namespace AprilManager
 
                 Save(tbSavePath.Text, rbUse.Checked ? "1" : "0", tbDLLUrl.Text, tbDLLVerUrl.Text, tbProgramUrl.Text, tbProgramVerUrl.Text);
                 MsgBoxOK("저장되었습니다.");
-                this.Close();
+                FormMgr.Send_DTO(new DTOEventArgs(this.Name, "mdiMain", "Refresh", tbSavePath.Text, rbUse.Checked ? "1" : "0", tbDLLUrl.Text, tbDLLVerUrl.Text, tbProgramUrl.Text, tbProgramVerUrl.Text));
             }
             catch (Exception ex)
             {
@@ -119,7 +119,17 @@ namespace AprilManager
         {
             try
             {
+                if (cRegKey == null)
+                    return;
 
+                RegistryMgr.DeleteKey(RegistryMgr.APPLICATION_ONLY_SETTINGS_PATH);
+                ClearSetting();
+
+                MsgBoxOK("초기화 되었습니다.");
+
+                cRegKey = RegistryMgr.CreateKey(RegistryMgr.APPLICATION_ONLY_SETTINGS_PATH);
+                Save(AprCommon.DataLinkObject.APPLICATION_LOCATION_WITHOUT_EXENAME, rbUse.Checked ? "1" : "0", URL_DLL, URL_DLLVERSION, URL_PROGRAM, URL_PROGRAMVERSION);
+                LoadSetting();
             }
             catch (Exception ex)
             {
@@ -131,7 +141,12 @@ namespace AprilManager
         {
             try
             {
-               
+                tbSavePath.Text = string.Empty;
+                tbDLLUrl.Text = string.Empty;
+                tbDLLVerUrl.Text = string.Empty;
+                tbProgramUrl.Text = string.Empty;
+                tbProgramVerUrl.Text = string.Empty;
+                rbDontUse.Checked = true;
             }
             catch (Exception ex)
             {
@@ -189,19 +204,6 @@ namespace AprilManager
                         break;
                 }
 
-            }
-            catch (Exception ex)
-            {
-                LogMgr.Write(AprCommon.DataLinkObject, ex);
-            }
-        }
-
-        private void frm_CM_Setting_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            try
-            {
-                if (this.DialogResult == DialogResult.OK)
-                FormMgr.Send_DTO(new DTOEventArgs(this.Name, "mdiMain", "Refresh", tbSavePath.Text, rbUse.Checked ? "1" : "0", tbDLLUrl.Text, tbDLLVerUrl.Text, tbProgramUrl.Text, tbProgramVerUrl.Text));
             }
             catch (Exception ex)
             {

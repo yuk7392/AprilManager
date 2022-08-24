@@ -35,6 +35,7 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.label7 = new System.Windows.Forms.Label();
             this.tbProgramUrl = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.tbDLLVerUrl = new System.Windows.Forms.TextBox();
@@ -49,9 +50,8 @@
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.tbSavePath = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.tbProgramVerUrl = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -93,7 +93,7 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 73F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 79F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(648, 79);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
@@ -107,7 +107,7 @@
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(156, 73);
             this.btnReset.TabIndex = 2;
-            this.btnReset.Text = "  초기화";
+            this.btnReset.Text = "     초기화";
             this.btnReset.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnReset.UseVisualStyleBackColor = true;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
@@ -122,7 +122,7 @@
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(156, 73);
             this.btnCancel.TabIndex = 1;
-            this.btnCancel.Text = "   취소";
+            this.btnCancel.Text = " 취소 / 닫기";
             this.btnCancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -137,7 +137,7 @@
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(156, 73);
             this.btnSave.TabIndex = 0;
-            this.btnSave.Text = "   저장";
+            this.btnSave.Text = "      저장";
             this.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -172,6 +172,18 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(648, 290);
             this.tableLayoutPanel3.TabIndex = 1;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label7.Font = new System.Drawing.Font("맑은 고딕", 20F, System.Drawing.FontStyle.Bold);
+            this.label7.Location = new System.Drawing.Point(4, 241);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(252, 48);
+            this.label7.TabIndex = 10;
+            this.label7.Text = "프로그램 버전 URL";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tbProgramUrl
             // 
@@ -279,7 +291,7 @@
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(381, 41);
             this.tableLayoutPanel4.TabIndex = 5;
             // 
@@ -323,7 +335,7 @@
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 46F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 41F));
             this.tableLayoutPanel5.Size = new System.Drawing.Size(381, 41);
             this.tableLayoutPanel5.TabIndex = 8;
             // 
@@ -351,6 +363,17 @@
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
+            // tbProgramVerUrl
+            // 
+            this.tbProgramVerUrl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbProgramVerUrl.Location = new System.Drawing.Point(263, 244);
+            this.tbProgramVerUrl.Multiline = true;
+            this.tbProgramVerUrl.Name = "tbProgramVerUrl";
+            this.tbProgramVerUrl.ReadOnly = true;
+            this.tbProgramVerUrl.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.tbProgramVerUrl.Size = new System.Drawing.Size(381, 42);
+            this.tbProgramVerUrl.TabIndex = 11;
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -365,29 +388,6 @@
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label7.Font = new System.Drawing.Font("맑은 고딕", 20F, System.Drawing.FontStyle.Bold);
-            this.label7.Location = new System.Drawing.Point(4, 241);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(252, 48);
-            this.label7.TabIndex = 10;
-            this.label7.Text = "프로그램 버전 URL";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // tbProgramVerUrl
-            // 
-            this.tbProgramVerUrl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbProgramVerUrl.Location = new System.Drawing.Point(263, 244);
-            this.tbProgramVerUrl.Multiline = true;
-            this.tbProgramVerUrl.Name = "tbProgramVerUrl";
-            this.tbProgramVerUrl.ReadOnly = true;
-            this.tbProgramVerUrl.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.tbProgramVerUrl.Size = new System.Drawing.Size(381, 42);
-            this.tbProgramVerUrl.TabIndex = 11;
-            // 
             // frm_CM_Setting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -401,7 +401,6 @@
             this.Name = "frm_CM_Setting";
             this.ShowIcon = false;
             this.Text = "설정";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frm_CM_Setting_FormClosing);
             this.Load += new System.EventHandler(this.frm_CM_Setting_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
