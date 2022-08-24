@@ -112,7 +112,7 @@ namespace AprilManager
                     return;
                 }
 
-                FormMgr.ShowForm("", false, this, null, false);
+                //FormMgr.ShowForm("", false, this, null, false);
             }
             catch (Exception ex)
             {
