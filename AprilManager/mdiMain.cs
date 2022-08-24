@@ -7,25 +7,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Win32;
 using April.Common;
 
 namespace AprilManager
 {
     public partial class mdiMain : AprilFormBase
     {
-
-        // Constraint
-        string URL_DLL = @"https://github.com/yuk7392/AprilManager/raw/master/AprilManager/bin/Debug/April.Common.dll";
-        string URL_VERSION = @"https://raw.githubusercontent.com/yuk7392/AprilManager/master/AprilManager/version.txt";
-        //
-
         bool cInternetConnected = false;
+        RegistryKey cRegKey = RegistryMgr.OpenKey(RegistryMgr.APPLICATION_ONLY_SETTINGS_PATH);
 
         public mdiMain()
         {
             InitializeComponent();
 
             this.Text = "April Manager [ App : " + AprCommon.DataLinkObject.APPLICATION_VERSION + ", DLL : " + AprCommon.DataLinkObject.DLL_VERSION + " ]";
+            FormMgr.SubscribeDTOEvent(this);
         }
 
         public override void Received_DTO(DTOEventArgs e)
@@ -35,7 +32,10 @@ namespace AprilManager
                 switch (e.SRCNAME)
                 {
                     case "frm_CM_Setting":
-
+                        if (e.MESSAGE.ToUpper().Equals("REFRESH"))
+                        {
+                            MsgBoxOK("test");
+                        }
                         break;
                 }
             }
@@ -54,6 +54,10 @@ namespace AprilManager
                 {
                     cInternetConnected = true;
                 }
+
+                if (cRegKey == null)
+                    btnSetting.PerformClick();
+
             }
             catch (Exception ex)
             {

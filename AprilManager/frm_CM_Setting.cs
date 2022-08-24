@@ -42,8 +42,18 @@ namespace AprilManager
         {
             try
             {
+                if (!FileMgr.Exists(tbSavePath.Text) || string.IsNullOrEmpty(tbSavePath.Text))
+                {
+                    MsgBoxError("존재하지 않는 경로입니다. 다시 입력하세요.");
+                    return;
+                }
+
                 RegistryKey rKey = RegistryMgr.OpenKey(RegistryMgr.APPLICATION_ONLY_SETTINGS_PATH);
                 RegistryMgr.SetValue(rKey, "SavePath", tbSavePath.Text);
+                RegistryMgr.SetValue(rKey, "AutoUpdate", rbUse.Checked ? "1" : "0");
+                RegistryMgr.SetValue(rKey, "Url_DLL", tbDLLUrl.Text);
+                RegistryMgr.SetValue(rKey, "Url_Version", tbDLLVerUrl.Text);
+                RegistryMgr.SetValue(rKey, "Url_Program", tbProgramUrl.Text);
             }
             catch (Exception ex)
             {
@@ -103,7 +113,7 @@ namespace AprilManager
         {
             try
             {
-
+               
             }
             catch (Exception ex)
             {
@@ -129,7 +139,7 @@ namespace AprilManager
             }
         }
 
-        private void label5_DoubleClick(object sender, EventArgs e)
+        private void label5_Click(object sender, EventArgs e)
         {
             try
             {
@@ -141,15 +151,19 @@ namespace AprilManager
                 switch(command.ToUpper().SplitString(StringSplitOptions.None, "=")[0].Trim())
                 {
                     case "@DLLURL":
-                        tbDLLURL.Text = command.SplitString(StringSplitOptions.None, "=")[1].Trim();
+                        tbDLLUrl.Text = command.SplitString(StringSplitOptions.None, "=")[1].Trim();
                         break;
 
-                    case "@VERSIONURL":
-                        tbVERSIONURL.Text = command.SplitString(StringSplitOptions.None, "=")[1].Trim();
+                    case "@DLLVERURL":
+                        tbDLLVerUrl.Text = command.SplitString(StringSplitOptions.None, "=")[1].Trim();
                         break;
 
-                    case "@VPROGRAMURL":
-                        tbPROGRAMURL.Text = command.SplitString(StringSplitOptions.None, "=")[1].Trim();
+                    case "@PROGRAMURL":
+                        tbProgramUrl.Text = command.SplitString(StringSplitOptions.None, "=")[1].Trim();
+                        break;
+
+                    case "@PROGRAMVERURL":
+                        tbProgramVerUrl.Text = command.SplitString(StringSplitOptions.None, "=")[1].Trim();
                         break;
 
                     default:
@@ -157,6 +171,18 @@ namespace AprilManager
                         break;
                 }
 
+            }
+            catch (Exception ex)
+            {
+                LogMgr.Write(AprCommon.DataLinkObject, ex);
+            }
+        }
+
+        private void frm_CM_Setting_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            try
+            {
+                FormMgr.Send_DTO(new DTOEventArgs(this.Name, "mdiMain", "Refresh"));
             }
             catch (Exception ex)
             {

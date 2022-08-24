@@ -91,7 +91,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="version.txt" />
+    <Content Include="Version_Program.txt" />
+    <Content Include="Version_DLL.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
