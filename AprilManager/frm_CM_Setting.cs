@@ -95,7 +95,7 @@ namespace AprilManager
 
                 Save(tbSavePath.Text, rbUse.Checked ? "1" : "0", tbDLLUrl.Text, tbDLLVerUrl.Text, tbProgramUrl.Text, tbProgramVerUrl.Text);
                 MsgBoxOK("저장되었습니다.");
-                FormMgr.Send_DTO(new DTOEventArgs(this.Name, "mdiMain", "Refresh", tbSavePath.Text, rbUse.Checked ? "1" : "0", tbDLLUrl.Text, tbDLLVerUrl.Text, tbProgramUrl.Text, tbProgramVerUrl.Text));
+                SendDTOToMain();
             }
             catch (Exception ex)
             {
@@ -128,9 +128,8 @@ namespace AprilManager
                 MsgBoxOK("초기화 되었습니다.");
 
                 SetRegKey();
-                Save(AprCommon.DataLinkObject.APPLICATION_LOCATION_WITHOUT_EXENAME, rbUse.Checked ? "1" : "0", URL_DLL, URL_DLLVERSION, URL_PROGRAM, URL_PROGRAMVERSION);
+                SetDefaultValue();
                 LoadSetting();
-                FormMgr.Send_DTO(new DTOEventArgs(this.Name, "mdiMain", "Refresh", tbSavePath.Text, rbUse.Checked ? "1" : "0", tbDLLUrl.Text, tbDLLVerUrl.Text, tbProgramUrl.Text, tbProgramVerUrl.Text));
             }
             catch (Exception ex)
             {
@@ -219,7 +218,7 @@ namespace AprilManager
                 if (cRegKey == null)
                 {
                     SetRegKey();
-                    Save(AprCommon.DataLinkObject.APPLICATION_LOCATION_WITHOUT_EXENAME, rbUse.Checked ? "1" : "0", URL_DLL, URL_DLLVERSION, URL_PROGRAM, URL_PROGRAMVERSION);
+                    SetDefaultValue();
                     LoadSetting();
                 }
                 else
@@ -238,6 +237,30 @@ namespace AprilManager
             try
             {
                 cRegKey = RegistryMgr.CreateKey(RegistryMgr.APPLICATION_ONLY_SETTINGS_PATH);
+            }
+            catch (Exception ex)
+            {
+                LogMgr.Write(AprCommon.DataLinkObject, ex);
+            }
+        }
+
+        private void SetDefaultValue()
+        {
+            try
+            {
+                Save(AprCommon.DataLinkObject.APPLICATION_LOCATION_WITHOUT_EXENAME, rbUse.Checked ? "1" : "0", URL_DLL, URL_DLLVERSION, URL_PROGRAM, URL_PROGRAMVERSION);
+            }
+            catch (Exception ex)
+            {
+                LogMgr.Write(AprCommon.DataLinkObject, ex);
+            }
+        }
+
+        private void SendDTOToMain()
+        {
+            try
+            {
+                FormMgr.Send_DTO(new DTOEventArgs(this.Name, "mdiMain", "Refresh", tbSavePath.Text, rbUse.Checked ? "1" : "0", tbDLLUrl.Text, tbDLLVerUrl.Text, tbProgramUrl.Text, tbProgramVerUrl.Text));
             }
             catch (Exception ex)
             {
