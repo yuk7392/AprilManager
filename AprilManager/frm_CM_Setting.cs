@@ -14,6 +14,10 @@ namespace AprilManager
 {
     public partial class frm_CM_Setting : AprilFormBase
     {
+        string URL_DLL = @"https://github.com/yuk7392/AprilManager/raw/master/AprilManager/bin/Debug/April.Common.dll";
+        string URL_DLLVERSION = @"https://raw.githubusercontent.com/yuk7392/AprilManager/master/AprilManager/Version_DLL.txt";
+        string URL_PROGRAM = @"https://github.com/yuk7392/AprilManager/raw/master/AprilManager/bin/Debug/AprilManager.exe";
+        string URL_PROGRAMVERSION = @"https://raw.githubusercontent.com/yuk7392/AprilManager/master/AprilManager/Version_Program.txt";
 
         public frm_CM_Setting()
         {
