@@ -182,7 +182,7 @@ namespace AprilManager
                 if (string.IsNullOrEmpty(command))
                     return;
 
-                switch(command.ToUpper().SplitString(StringSplitOptions.None, "=")[0].Trim())
+                switch (command.ToUpper().SplitString(StringSplitOptions.None, "=")[0].Trim())
                 {
                     case "@DLLURL":
                         tbDLLUrl.Text = command.SplitString(StringSplitOptions.None, "=")[1].Trim();
