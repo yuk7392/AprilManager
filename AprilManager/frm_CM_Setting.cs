@@ -127,8 +127,8 @@ namespace AprilManager
 
                 MsgBoxOK("초기화 되었습니다.");
 
-                SetRegKey();
-                SetDefaultValue();
+                SetNewRegKey();
+                SaveDefaultValue();
                 LoadSetting();
             }
             catch (Exception ex)
@@ -217,8 +217,8 @@ namespace AprilManager
             {
                 if (cRegKey == null)
                 {
-                    SetRegKey();
-                    SetDefaultValue();
+                    SetNewRegKey();
+                    SaveDefaultValue();
                     LoadSetting();
                 }
                 else
@@ -232,7 +232,7 @@ namespace AprilManager
             }
         }
 
-        private void SetRegKey()
+        private void SetNewRegKey()
         {
             try
             {
@@ -244,7 +244,7 @@ namespace AprilManager
             }
         }
 
-        private void SetDefaultValue()
+        private void SaveDefaultValue()
         {
             try
             {
