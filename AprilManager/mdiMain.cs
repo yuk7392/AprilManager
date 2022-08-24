@@ -93,7 +93,35 @@ namespace AprilManager
                     return;
                 }
 
-                FormMgr.ShowForm("", false, this, null, false);
+                string dllServerVersion = NetMgr.DownloadString(URL_DLLVERSION);
+                string programServerVersion = NetMgr.DownloadString(URL_PROGRAMVERSION);
+                bool isProgramLatest = AprCommon.DataLinkObject.APPLICATION_VERSION.Equals(programServerVersion.Trim()) ? true : false;
+                bool isDLLLatest = AprCommon.DataLinkObject.DLL_VERSION.Equals(dllServerVersion.Trim()) ? true : false;
+
+                StringBuilder msgStr = new StringBuilder();
+                msgStr.Append("프로그램 버전 : " + AprCommon.DataLinkObject.APPLICATION_VERSION + NEWLINE);
+                msgStr.Append("서버 버전 : " + programServerVersion + NEWLINE);
+                msgStr.Append("DLL 버전 : " + AprCommon.DataLinkObject.DLL_VERSION + NEWLINE);
+                msgStr.Append("서버 버전 : " + dllServerVersion + NEWLINE);
+                msgStr.Append(NEWLINE);
+                msgStr.Append("프로그램 상태 : "+ (isProgramLatest ? "최신입니다." : "업데이트가 존재합니다.") + NEWLINE);
+                msgStr.Append("DLL 상태 : " + (isDLLLatest ? "최신입니다." : "업데이트가 존재합니다.") + NEWLINE);
+
+                if (isDLLLatest && isProgramLatest)
+                    msgStr.Append("모두 최신버전입니다.");
+                else if ((isDLLLatest && !isProgramLatest) || (!isDLLLatest || isProgramLatest))
+                    msgStr.Append((isDLLLatest ? "프로그램" : "DLL") + " 업데이트가 존재합니다, 업데이트를 진행하시겠습니까?");
+                else
+                    msgStr.Append("2개의 업데이트가 존재합니다, 업데이트를 진행하시겠습니까?");
+
+                if (isDLLLatest && isProgramLatest)
+                {
+                    MsgBoxOK(msgStr.ToString());
+                    return;
+                }
+
+                if (MsgBoxYesNo(msgStr.ToString()) != DialogResult.Yes)
+                    return;
 
             }
             catch (Exception ex)
