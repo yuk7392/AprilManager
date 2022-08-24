@@ -130,6 +130,7 @@ namespace AprilManager
                 cRegKey = RegistryMgr.CreateKey(RegistryMgr.APPLICATION_ONLY_SETTINGS_PATH);
                 Save(AprCommon.DataLinkObject.APPLICATION_LOCATION_WITHOUT_EXENAME, rbUse.Checked ? "1" : "0", URL_DLL, URL_DLLVERSION, URL_PROGRAM, URL_PROGRAMVERSION);
                 LoadSetting();
+                FormMgr.Send_DTO(new DTOEventArgs(this.Name, "mdiMain", "Refresh", tbSavePath.Text, rbUse.Checked ? "1" : "0", tbDLLUrl.Text, tbDLLVerUrl.Text, tbProgramUrl.Text, tbProgramVerUrl.Text));
             }
             catch (Exception ex)
             {
