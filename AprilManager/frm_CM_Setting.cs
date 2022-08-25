@@ -81,6 +81,8 @@ namespace AprilManager
                 tbDLLVerUrl.Text = RegistryMgr.GetValue(cRegKey, "Url_DLL_Version");
                 tbProgramUrl.Text = RegistryMgr.GetValue(cRegKey, "Url_Program");
                 tbProgramVerUrl.Text = RegistryMgr.GetValue(cRegKey, "Url_Program_Version");
+
+                SendDTOToAll();
             }
             catch (Exception ex)
             {
@@ -102,7 +104,7 @@ namespace AprilManager
 
                 Save(tbSavePath.Text, rbUse.Checked ? "1" : "0", tbDLLUrl.Text, tbDLLVerUrl.Text, tbProgramUrl.Text, tbProgramVerUrl.Text);
                 MsgBoxOK("저장되었습니다.");
-                SendDTOToMain();
+                SendDTOToAll();
             }
             catch (Exception ex)
             {
@@ -263,11 +265,12 @@ namespace AprilManager
             }
         }
 
-        private void SendDTOToMain()
+        private void SendDTOToAll()
         {
             try
             {
                 FormMgr.Send_DTO(new DTOEventArgs(this.Name, "mdiMain", "Refresh", tbSavePath.Text, rbUse.Checked ? "1" : "0", tbDLLUrl.Text, tbDLLVerUrl.Text, tbProgramUrl.Text, tbProgramVerUrl.Text));
+                FormMgr.Send_DTO(new DTOEventArgs(this.Name, "frm_CM_DownloadFile", "Refresh", tbSavePath.Text, tbDLLUrl.Text, tbProgramUrl.Text));
             }
             catch (Exception ex)
             {

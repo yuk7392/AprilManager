@@ -143,13 +143,13 @@ namespace AprilManager
                     return;
                 }
 
-                if (FormMgr.IsFormOpened("frm_CM_Setting"))
-                {
-                    MsgBoxWarning("오작동 방지를 위해 설정완료 후 다시 시도하세요.");
-                    return;
-                }
+                //if (FormMgr.IsFormOpened("frm_CM_Setting"))
+                //{
+                //    MsgBoxWarning("오작동 방지를 위해 설정완료 후 다시 시도하세요.");
+                //    return;
+                //}
 
-                FormMgr.ShowForm("frm_CM_Download", false, this, new DTOEventArgs(this.Name, "frm_CM_Download", string.Empty, isDLLLatest, isProgramLatest), false);
+                FormMgr.ShowForm("frm_CM_DownloadFile", false, this, new DTOEventArgs(this.Name, "frm_CM_DownloadFile", string.Empty, isDLLLatest, isProgramLatest, SAVEPATH, URL_DLL, URL_PROGRAM), false); ;
             }
             catch (Exception ex)
             {
@@ -161,11 +161,11 @@ namespace AprilManager
         {
             try
             {
-                if (FormMgr.IsFormOpened("frm_CM_Download"))
-                {
-                    MsgBoxWarning("오작동 방지를 위해 설정완료 후 다시 시도하세요.");
-                    return;
-                }
+                //if (FormMgr.IsFormOpened("frm_CM_Download"))
+                //{
+                //    MsgBoxWarning("오작동 방지를 위해 설정완료 후 다시 시도하세요.");
+                //    return;
+                //}
 
                 FormMgr.ShowForm("frm_CM_Setting", false, this, new DTOEventArgs(this.Name, "frm_CM_Setting", string.Empty));
             }

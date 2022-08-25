@@ -33,6 +33,7 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.btnReset = new System.Windows.Forms.Button();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
@@ -53,7 +54,6 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.tbProgramVerUrl = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -114,6 +114,14 @@
             this.btnReset.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnReset.UseVisualStyleBackColor = true;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "round_close_black_18dp.png");
+            this.imageList1.Images.SetKeyName(1, "round_restart_alt_black_18dp.png");
+            this.imageList1.Images.SetKeyName(2, "round_save_black_18dp.png");
             // 
             // btnCancel
             // 
@@ -392,14 +400,6 @@
             this.label5.Text = "반드시 변경 후 저장버튼을 눌러주세요.";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label5.Click += new System.EventHandler(this.label5_Click);
-            // 
-            // imageList1
-            // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "round_close_black_18dp.png");
-            this.imageList1.Images.SetKeyName(1, "round_restart_alt_black_18dp.png");
-            this.imageList1.Images.SetKeyName(2, "round_save_black_18dp.png");
             // 
             // frm_CM_Setting
             // 
