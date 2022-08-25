@@ -163,6 +163,9 @@ namespace AprilManager
 
                 foreach (FileInfo fi in fileInfos)
                 {
+                    string path = fi.FullName.Substring(0, fi.FullName.LastIndexOf(@"\")) + @"\" + fi.Name.RemoveExtension() + ".APRILOLD";
+                    if (FileMgr.Exists(path))
+                        FileMgr.Delete(path);
                     fi.MoveTo(fi.FullName.Substring(0, fi.FullName.LastIndexOf(@"\")) + @"\" + fi.Name.RemoveExtension() + ".APRILOLD");
                 }
 
