@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using April.Common;
+using System.IO;
 
 namespace AprilManager
 {
@@ -103,7 +104,7 @@ namespace AprilManager
         {
             try
             {
-
+                DownloadFile();
             }
             catch (Exception ex)
             {
@@ -140,6 +141,45 @@ namespace AprilManager
             try
             {
                 SetDownloadCntLbl();
+            }
+            catch (Exception ex)
+            {
+                LogMgr.Write(AprCommon.DataLinkObject, ex);
+            }
+        }
+
+        private void DownloadFile()
+        {
+            try
+            {
+                cDownloadList.Clear();
+                List<FileInfo> fileInfos = new List<FileInfo>();
+
+                if (cbDll.Checked)
+                {
+                    cDownloadList.Add(new eDownloadFile(tbDllUrl.Text, tbDllSavePath.Text));
+                    fileInfos.Add(new FileInfo(tbDllSavePath.Text));
+                }
+
+                if (cbProgram.Checked)
+                {
+                    cDownloadList.Add(new eDownloadFile(tbProgramUrl.Text, tbProgramSavePath.Text));
+                    fileInfos.Add(new FileInfo(tbProgramSavePath.Text));
+                }
+
+                foreach (FileInfo fi in fileInfos)
+                {
+                    fi.MoveTo(fi.FullName.Substring(0, fi.FullName.LastIndexOf(@"\")) + @"\" + fi.Name.RemoveExtension()+ ".APRILOLD");
+                }
+
+                ShowDownloadDialog(cDownloadList);
+
+                if (cbProgram.Checked)
+                {
+                    MsgBoxOK("프로그램을 다시 시작합니다.");
+                    Application.Restart();
+                }
+
             }
             catch (Exception ex)
             {
