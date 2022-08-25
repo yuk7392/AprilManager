@@ -48,6 +48,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frm_CM_Download.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_CM_Download.Designer.cs">
+      <DependentUpon>frm_CM_Download.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_CM_Setting.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -62,6 +68,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frm_CM_Download.resx">
+      <DependentUpon>frm_CM_Download.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_CM_Setting.resx">
       <DependentUpon>frm_CM_Setting.cs</DependentUpon>
     </EmbeddedResource>

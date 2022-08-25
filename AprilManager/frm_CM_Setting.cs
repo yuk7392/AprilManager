@@ -28,19 +28,26 @@ namespace AprilManager
 
         public override void Received_DTO(DTOEventArgs e)
         {
-            if (e.DSTNAME.Equals(this.Name))
+            try
             {
-                switch (e.SRCNAME)
+                if (e.DSTNAME.Equals(this.Name))
                 {
-                    case "mdiMain":
+                    switch (e.SRCNAME)
+                    {
+                        case "mdiMain":
 
-                        if (e.dataObject.Count > 0)
-                        {
+                            if (e.dataObject.Count > 0)
+                            {
 
-                        }
+                            }
 
-                        break;
+                            break;
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                LogMgr.Write(AprCommon.DataLinkObject, ex);
             }
         }
 

@@ -26,6 +26,9 @@ namespace AprilManager
         string URL_PROGRAMVERSION = string.Empty;
         //
 
+        bool isProgramLatest = true;
+        bool isDLLLatest = true;
+
         public mdiMain()
         {
             InitializeComponent();
@@ -95,8 +98,8 @@ namespace AprilManager
 
                 string dllServerVersion = NetMgr.DownloadString(URL_DLLVERSION);
                 string programServerVersion = NetMgr.DownloadString(URL_PROGRAMVERSION);
-                bool isProgramLatest = AprCommon.DataLinkObject.APPLICATION_VERSION.Equals(programServerVersion.Trim()) ? true : false;
-                bool isDLLLatest = AprCommon.DataLinkObject.DLL_VERSION.Equals(dllServerVersion.Trim()) ? true : false;
+                isProgramLatest = AprCommon.DataLinkObject.APPLICATION_VERSION.Equals(programServerVersion.Trim()) ? true : false;
+                isDLLLatest = AprCommon.DataLinkObject.DLL_VERSION.Equals(dllServerVersion.Trim()) ? true : false;
 
                 StringBuilder msgStr = new StringBuilder();
                 msgStr.Append("프로그램 버전 : " + AprCommon.DataLinkObject.APPLICATION_VERSION + NEWLINE);
@@ -140,7 +143,13 @@ namespace AprilManager
                     return;
                 }
 
-                //FormMgr.ShowForm("", false, this, null, false);
+                if (FormMgr.IsFormOpened("frm_CM_Setting"))
+                {
+                    MsgBoxWarning("오작동 방지를 위해 설정완료 후 다시 시도하세요.");
+                    return;
+                }
+
+                FormMgr.ShowForm("frm_CM_Download", false, this, new DTOEventArgs(this.Name, "frm_CM_Download", string.Empty, isDLLLatest, isProgramLatest), false);
             }
             catch (Exception ex)
             {
@@ -152,6 +161,12 @@ namespace AprilManager
         {
             try
             {
+                if (FormMgr.IsFormOpened("frm_CM_Download"))
+                {
+                    MsgBoxWarning("오작동 방지를 위해 설정완료 후 다시 시도하세요.");
+                    return;
+                }
+
                 FormMgr.ShowForm("frm_CM_Setting", false, this, new DTOEventArgs(this.Name, "frm_CM_Setting", string.Empty));
             }
             catch (Exception ex)
