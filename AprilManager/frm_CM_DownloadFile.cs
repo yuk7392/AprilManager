@@ -168,11 +168,8 @@ namespace AprilManager
 
                 ShowDownloadDialog(cDownloadList);
 
-                if (cbProgram.Checked)
-                {
-                    MsgBoxOK("업데이트가 완료되었습니다. 프로그램을 다시 시작해주세요.");
-                    Application.Exit();
-                }
+                MsgBoxOK("업데이트가 완료되었습니다. 프로그램을 다시 시작해주세요.");
+                Application.Exit();
 
             }
             catch (Exception ex)
