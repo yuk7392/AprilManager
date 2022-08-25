@@ -206,5 +206,17 @@ namespace AprilManager
                 LogMgr.Write(AprCommon.DataLinkObject, ex);
             }
         }
+
+        private void btnChangeLog_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+                LogMgr.Write(AprCommon.DataLinkObject, ex);
+            }
+        }
     }
 }
