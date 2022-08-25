@@ -177,7 +177,8 @@ namespace AprilManager
                 if (cbProgram.Checked)
                 {
                     MsgBoxOK("프로그램을 다시 시작합니다.");
-                    Application.Restart();
+                    ProcessMgr.Start(tbProgramSavePath.Text);
+                    this.Close();
                 }
 
             }
