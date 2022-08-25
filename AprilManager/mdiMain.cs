@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using April.Common;
 using Microsoft.Win32;
-using April.Common;
+using System;
+using System.Text;
+using System.Windows.Forms;
 
 namespace AprilManager
 {
@@ -55,7 +49,7 @@ namespace AprilManager
 
                             cRegKey = RegistryMgr.OpenKey(RegistryMgr.APPLICATION_ONLY_SETTINGS_PATH);
                         }
-                           
+
                         break;
                 }
             }
@@ -79,6 +73,9 @@ namespace AprilManager
                     btnSetting.PerformClick();
                 else
                     SetConstraintValue();
+
+                if (AUTOUPDATE.Equals("1"))
+                    btnCheckUpdate.PerformClick();
             }
             catch (Exception ex)
             {
@@ -107,7 +104,7 @@ namespace AprilManager
                 msgStr.Append("DLL 버전 : " + AprCommon.DataLinkObject.DLL_VERSION + NEWLINE);
                 msgStr.Append("서버 버전 : " + dllServerVersion + NEWLINE);
                 msgStr.Append(NEWLINE);
-                msgStr.Append("프로그램 상태 : "+ (isProgramLatest ? "최신입니다." : "업데이트가 존재합니다.") + NEWLINE);
+                msgStr.Append("프로그램 상태 : " + (isProgramLatest ? "최신입니다." : "업데이트가 존재합니다.") + NEWLINE);
                 msgStr.Append("DLL 상태 : " + (isDLLLatest ? "최신입니다." : "업데이트가 존재합니다.") + NEWLINE);
 
                 if (isDLLLatest && isProgramLatest)
@@ -126,6 +123,7 @@ namespace AprilManager
                 if (MsgBoxYesNo(msgStr.ToString()) != DialogResult.Yes)
                     return;
 
+                btnDownload.PerformClick();
             }
             catch (Exception ex)
             {

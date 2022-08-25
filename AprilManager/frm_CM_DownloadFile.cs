@@ -1,14 +1,8 @@
-﻿using System;
+﻿using April.Common;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using April.Common;
 using System.IO;
+using System.Windows.Forms;
 
 namespace AprilManager
 {
@@ -60,7 +54,7 @@ namespace AprilManager
                             break;
                     }
 
-                    
+
                 }
             }
             catch (Exception ex)
@@ -169,7 +163,7 @@ namespace AprilManager
 
                 foreach (FileInfo fi in fileInfos)
                 {
-                    fi.MoveTo(fi.FullName.Substring(0, fi.FullName.LastIndexOf(@"\")) + @"\" + fi.Name.RemoveExtension()+ ".APRILOLD");
+                    fi.MoveTo(fi.FullName.Substring(0, fi.FullName.LastIndexOf(@"\")) + @"\" + fi.Name.RemoveExtension() + ".APRILOLD");
                 }
 
                 ShowDownloadDialog(cDownloadList);
