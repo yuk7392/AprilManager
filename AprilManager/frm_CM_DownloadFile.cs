@@ -161,6 +161,12 @@ namespace AprilManager
                     fileInfos.Add(new FileInfo(tbProgramSavePath.Text));
                 }
 
+                if (fileInfos.Count == 0)
+                {
+                    MsgBoxError("선택된 항목이 없습니다.");
+                    return;
+                }
+
                 foreach (FileInfo fi in fileInfos)
                 {
                     string path = fi.FullName.Substring(0, fi.FullName.LastIndexOf(@"\")) + @"\" + fi.Name.RemoveExtension() + ".APRILOLD";
