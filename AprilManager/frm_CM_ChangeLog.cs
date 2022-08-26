@@ -17,7 +17,7 @@ namespace AprilManager
         {
             InitializeComponent();
 
-            // v 1.0.0.6
+            // 20220826 - 1 
             cbDllVer.AddItems("1.0.0.7",  "콤보박스 관련 기능 추가");
             cbProgramVer.AddItems("1.0.0.2", "로그 기능 추가");
             //
