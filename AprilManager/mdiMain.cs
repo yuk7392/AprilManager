@@ -211,7 +211,13 @@ namespace AprilManager
         {
             try
             {
+                if (!NetMgr.InternetConnected())
+                {
+                    MsgBoxError("인터넷에 연결되지 않아 해당 기능을 사용할 수 없습니다.");
+                    return;
+                }
 
+                FormMgr.ShowForm("frm_CM_ChangeLog", false, this);
             }
             catch (Exception ex)
             {

@@ -28,8 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_CM_ChangeLog));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.tbProgramLog = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.cbDllVer = new April.Common.AprilComboBox();
             this.lblDllName = new System.Windows.Forms.Label();
@@ -37,7 +39,6 @@
             this.cbProgramVer = new April.Common.AprilComboBox();
             this.lblProgramName = new System.Windows.Forms.Label();
             this.tbDllLog = new System.Windows.Forms.TextBox();
-            this.tbProgramLog = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -79,6 +80,16 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(724, 595);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
+            // tbProgramLog
+            // 
+            this.tbProgramLog.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbProgramLog.Location = new System.Drawing.Point(365, 64);
+            this.tbProgramLog.Multiline = true;
+            this.tbProgramLog.Name = "tbProgramLog";
+            this.tbProgramLog.ReadOnly = true;
+            this.tbProgramLog.Size = new System.Drawing.Size(355, 527);
+            this.tbProgramLog.TabIndex = 3;
+            // 
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
@@ -97,6 +108,7 @@
             // 
             // cbDllVer
             // 
+            this.cbDllVer.DisplayMember = "DisplayText";
             this.cbDllVer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cbDllVer.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cbDllVer.FormattingEnabled = true;
@@ -105,6 +117,8 @@
             this.cbDllVer.Name = "cbDllVer";
             this.cbDllVer.Size = new System.Drawing.Size(135, 45);
             this.cbDllVer.TabIndex = 0;
+            this.cbDllVer.ValueMember = "ValueText";
+            this.cbDllVer.SelectedIndexChanged += new System.EventHandler(this.cbDllVer_SelectedIndexChanged);
             // 
             // lblDllName
             // 
@@ -136,6 +150,7 @@
             // 
             // cbProgramVer
             // 
+            this.cbProgramVer.DisplayMember = "DisplayText";
             this.cbProgramVer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cbProgramVer.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cbProgramVer.FormattingEnabled = true;
@@ -144,6 +159,8 @@
             this.cbProgramVer.Name = "cbProgramVer";
             this.cbProgramVer.Size = new System.Drawing.Size(135, 45);
             this.cbProgramVer.TabIndex = 0;
+            this.cbProgramVer.ValueMember = "ValueText";
+            this.cbProgramVer.SelectedIndexChanged += new System.EventHandler(this.cbProgramVer_SelectedIndexChanged);
             // 
             // lblProgramName
             // 
@@ -167,16 +184,6 @@
             this.tbDllLog.Size = new System.Drawing.Size(354, 527);
             this.tbDllLog.TabIndex = 2;
             // 
-            // tbProgramLog
-            // 
-            this.tbProgramLog.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbProgramLog.Location = new System.Drawing.Point(365, 64);
-            this.tbProgramLog.Multiline = true;
-            this.tbProgramLog.Name = "tbProgramLog";
-            this.tbProgramLog.ReadOnly = true;
-            this.tbProgramLog.Size = new System.Drawing.Size(355, 527);
-            this.tbProgramLog.TabIndex = 3;
-            // 
             // frm_CM_ChangeLog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -188,7 +195,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frm_CM_ChangeLog";
-            this.Text = "frm_CM_ChangeLog";
+            this.Text = "변경 사항";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();

@@ -16,6 +16,35 @@ namespace AprilManager
         public frm_CM_ChangeLog()
         {
             InitializeComponent();
+
+            // v 1.0.0.6
+            cbDllVer.AddItems("1.0.0.6",  "콤보박스 관련 기능 추가");
+            cbProgramVer.AddItems("1.0.0.2", "로그 기능 추가");
+            //
+        }
+
+        private void cbDllVer_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                tbDllLog.Text = cbDllVer.SelectedValue as string;
+            }
+            catch (Exception ex)
+            {
+                LogMgr.Write(AprCommon.DataLinkObject, ex);
+            }
+        }
+
+        private void cbProgramVer_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                tbProgramLog.Text = cbProgramVer.SelectedValue as string;
+            }
+            catch (Exception ex)
+            {
+                LogMgr.Write(AprCommon.DataLinkObject, ex);
+            }
         }
     }
 }
