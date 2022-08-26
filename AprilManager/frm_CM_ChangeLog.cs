@@ -17,17 +17,14 @@ namespace AprilManager
         {
             InitializeComponent();
 
-            // 20220826 - 1 
-            cbDllVer.AddItems("1.0.0.7",  "콤보박스 관련 기능 추가");
+            // DLL
+            cbDllVer.AddItems("1.0.0.7", "콤보박스 관련 기능 추가");
+            cbDllVer.AddItems("1.0.0.8", "콤보박스 관련 기능 수정" + NEWLINE + "eComboboxItem엔티티를 통하여 AprilComboBox를 지정하고, SetSelectedItem, Add, Remove 메서드 추가");
+            //
+
+            // PROGRAM
             cbProgramVer.AddItems("1.0.0.2", "로그 기능 추가");
-            //
-
-            // 20220826 - 2
             cbProgramVer.AddItems("1.0.0.3", "업데이트 항목 미 체크시 진행하지 못하도록 수정");
-            //
-
-            // 20220826 - 3
-            cbDllVer.AddItems("1.0.0.8", "콤보박스 관련 기능 수정"+NEWLINE+ "eComboboxItem엔티티를 통하여 AprilComboBox를 지정하고, SetSelectedItem, Add, Remove 메서드 추가");
             cbProgramVer.AddItems("1.0.0.4", "버전에 따른 콤보박스 자동 세팅기능 추가");
             //
         }
