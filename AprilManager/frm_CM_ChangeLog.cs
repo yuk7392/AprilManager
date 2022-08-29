@@ -20,6 +20,8 @@ namespace AprilManager
             // DLL
             cbDllVer.AddItems("1.0.0.7", "콤보박스 관련 기능 추가");
             cbDllVer.AddItems("1.0.0.8", "콤보박스 관련 기능 수정" + NEWLINE + "eComboboxItem엔티티를 통하여 AprilComboBox를 지정하고, SetSelectedItem, Add, Remove 메서드 추가");
+            cbDllVer.AddItems("1.0.0.9", "GridRowMove 추가, AprilDataGrid 추가");
+
             //
 
             // PROGRAM
