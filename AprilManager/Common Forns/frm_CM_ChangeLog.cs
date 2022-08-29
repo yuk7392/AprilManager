@@ -41,9 +41,6 @@ namespace AprilManager
                 cbProgramVer.AddItems(version[i], context[i]);
             }
 
-            cbDllVer.SetSelectedItem(AprCommon.DataLinkObject.DLL_VERSION);
-            cbProgramVer.SetSelectedItem(AprCommon.DataLinkObject.APPLICATION_VERSION);
-
             CloseWaitScreen();
         }
 

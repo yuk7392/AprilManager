@@ -14,4 +14,5 @@ GridRowMove 추가, AprilDataGrid 추가
 # 1.0.0.10
 ChangeLog 형식을 받아올 수 있도록 AprParser 클래스 추가
 \r, \n 등의 문자를 치환시키는 기능추가
+자동으로 세팅하는 위치 변경
 #
