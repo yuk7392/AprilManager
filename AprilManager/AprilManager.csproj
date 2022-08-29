@@ -109,6 +109,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Changelog_DLL.txt" />
+    <Content Include="Changelog_Program.txt" />
     <Content Include="Version_Program.txt" />
     <Content Include="Version_DLL.txt" />
   </ItemGroup>
