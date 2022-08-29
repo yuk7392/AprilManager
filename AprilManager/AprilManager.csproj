@@ -48,22 +48,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frm_CM_ChangeLog.cs">
+    <Compile Include="Common Forns\frm_CM_ChangeLog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frm_CM_ChangeLog.Designer.cs">
+    <Compile Include="Common Forns\frm_CM_ChangeLog.Designer.cs">
       <DependentUpon>frm_CM_ChangeLog.cs</DependentUpon>
     </Compile>
-    <Compile Include="frm_CM_DownloadFile.cs">
+    <Compile Include="Common Forns\frm_CM_DownloadFile.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frm_CM_DownloadFile.Designer.cs">
+    <Compile Include="Common Forns\frm_CM_DownloadFile.Designer.cs">
       <DependentUpon>frm_CM_DownloadFile.cs</DependentUpon>
     </Compile>
-    <Compile Include="frm_CM_Setting.cs">
+    <Compile Include="Common Forns\frm_CM_Setting.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frm_CM_Setting.Designer.cs">
+    <Compile Include="Common Forns\frm_CM_Setting.Designer.cs">
       <DependentUpon>frm_CM_Setting.cs</DependentUpon>
     </Compile>
     <Compile Include="mdiMain.cs">
@@ -74,13 +74,13 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frm_CM_ChangeLog.resx">
+    <EmbeddedResource Include="Common Forns\frm_CM_ChangeLog.resx">
       <DependentUpon>frm_CM_ChangeLog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frm_CM_DownloadFile.resx">
+    <EmbeddedResource Include="Common Forns\frm_CM_DownloadFile.resx">
       <DependentUpon>frm_CM_DownloadFile.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frm_CM_Setting.resx">
+    <EmbeddedResource Include="Common Forns\frm_CM_Setting.resx">
       <DependentUpon>frm_CM_Setting.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="mdiMain.resx">
