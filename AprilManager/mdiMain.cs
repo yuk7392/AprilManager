@@ -111,7 +111,7 @@ namespace AprilManager
 
                 if (isDLLLatest && isProgramLatest)
                     msgStr.Append("모두 최신버전입니다.");
-                else if ((isDLLLatest && !isProgramLatest) || (!isDLLLatest || isProgramLatest))
+                else if ((isDLLLatest && !isProgramLatest) || (!isDLLLatest || isProgramLatest) && (!isDLLLatest && !isProgramLatest))
                     msgStr.Append((isDLLLatest ? "프로그램" : "DLL") + " 업데이트가 존재합니다, 업데이트를 진행하시겠습니까?");
                 else
                     msgStr.Append("모두 업데이트가 존재합니다, 업데이트를 진행하시겠습니까?");
