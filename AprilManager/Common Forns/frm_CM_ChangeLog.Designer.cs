@@ -28,12 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_CM_ChangeLog));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tbProgramLog = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.cbDllVer = new April.Common.AprilComboBox();
             this.lblDllName = new System.Windows.Forms.Label();
+            this.cbDllVer = new April.Common.AprilComboBox();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.cbProgramVer = new April.Common.AprilComboBox();
             this.lblProgramName = new System.Windows.Forms.Label();
@@ -56,7 +57,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 602F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(732, 603);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
@@ -95,8 +96,8 @@
             this.tableLayoutPanel3.ColumnCount = 2;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.tableLayoutPanel3.Controls.Add(this.cbDllVer, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.lblDllName, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.cbDllVer, 1, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(4, 4);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -104,20 +105,6 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(354, 53);
             this.tableLayoutPanel3.TabIndex = 0;
-            // 
-            // cbDllVer
-            // 
-            this.cbDllVer.DisplayMember = "DisplayText";
-            this.cbDllVer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cbDllVer.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbDllVer.FormattingEnabled = true;
-            this.cbDllVer.ItemHeight = 39;
-            this.cbDllVer.Location = new System.Drawing.Point(215, 4);
-            this.cbDllVer.Name = "cbDllVer";
-            this.cbDllVer.Size = new System.Drawing.Size(135, 45);
-            this.cbDllVer.TabIndex = 0;
-            this.cbDllVer.ValueMember = "ValueText";
-            this.cbDllVer.SelectedIndexChanged += new System.EventHandler(this.cbDllVer_SelectedIndexChanged);
             // 
             // lblDllName
             // 
@@ -131,13 +118,28 @@
             this.lblDllName.Text = "April.Common";
             this.lblDllName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // cbDllVer
+            // 
+            this.cbDllVer.DisplayMember = "DISPLAYTEXT";
+            this.cbDllVer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbDllVer.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbDllVer.FormattingEnabled = true;
+            this.cbDllVer.ItemHeight = 39;
+            this.cbDllVer.ItemTextAlignment = April.Common.AprilComboBox.ItemTextAlign.CENTER;
+            this.cbDllVer.Location = new System.Drawing.Point(215, 4);
+            this.cbDllVer.Name = "cbDllVer";
+            this.cbDllVer.Size = new System.Drawing.Size(135, 45);
+            this.cbDllVer.TabIndex = 2;
+            this.cbDllVer.ValueMember = "VALUE";
+            this.cbDllVer.SelectedIndexChanged += new System.EventHandler(this.cbDllVer_SelectedIndexChanged);
+            // 
             // tableLayoutPanel4
             // 
             this.tableLayoutPanel4.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel4.ColumnCount = 2;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.tableLayoutPanel4.Controls.Add(this.cbProgramVer, 1, 0);
+            this.tableLayoutPanel4.Controls.Add(this.cbProgramVer, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.lblProgramName, 0, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(365, 4);
@@ -149,16 +151,17 @@
             // 
             // cbProgramVer
             // 
-            this.cbProgramVer.DisplayMember = "DisplayText";
+            this.cbProgramVer.DisplayMember = "DISPLAYTEXT";
             this.cbProgramVer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cbProgramVer.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cbProgramVer.FormattingEnabled = true;
             this.cbProgramVer.ItemHeight = 39;
+            this.cbProgramVer.ItemTextAlignment = April.Common.AprilComboBox.ItemTextAlign.CENTER;
             this.cbProgramVer.Location = new System.Drawing.Point(216, 4);
             this.cbProgramVer.Name = "cbProgramVer";
             this.cbProgramVer.Size = new System.Drawing.Size(135, 45);
-            this.cbProgramVer.TabIndex = 0;
-            this.cbProgramVer.ValueMember = "ValueText";
+            this.cbProgramVer.TabIndex = 3;
+            this.cbProgramVer.ValueMember = "VALUE";
             this.cbProgramVer.SelectedIndexChanged += new System.EventHandler(this.cbProgramVer_SelectedIndexChanged);
             // 
             // lblProgramName
@@ -190,7 +193,6 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(732, 603);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Font = new System.Drawing.Font("맑은 고딕", 10F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frm_CM_ChangeLog";
@@ -212,11 +214,11 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.TextBox tbProgramLog;
-        private April.Common.AprilComboBox cbDllVer;
         private System.Windows.Forms.Label lblDllName;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
-        private April.Common.AprilComboBox cbProgramVer;
         private System.Windows.Forms.Label lblProgramName;
         private System.Windows.Forms.TextBox tbDllLog;
+        private April.Common.AprilComboBox cbDllVer;
+        private April.Common.AprilComboBox cbProgramVer;
     }
 }

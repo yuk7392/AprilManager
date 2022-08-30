@@ -28,7 +28,7 @@ namespace AprilManager
 
             for (int i = 0; i < version.Count; i++)
             {
-                cbDllVer.AddItems(version[i], context[i]);
+                cbDllVer.AddItem(version[i], context[i]);
             }
 
             version.Clear();
@@ -38,7 +38,7 @@ namespace AprilManager
 
             for (int i = 0; i < version.Count; i++)
             {
-                cbProgramVer.AddItems(version[i], context[i]);
+                cbProgramVer.AddItem(version[i], context[i]);
             }
 
             CloseWaitScreen();
@@ -48,7 +48,7 @@ namespace AprilManager
         {
             try
             {
-                tbDllLog.Text = cbDllVer.SelectedValue as string;
+                tbDllLog.Text = cbDllVer.GetSelectedValue();
             }
             catch (Exception ex)
             {
@@ -60,7 +60,7 @@ namespace AprilManager
         {
             try
             {
-                tbProgramLog.Text = cbProgramVer.SelectedValue as string;
+                tbProgramLog.Text = cbProgramVer.GetSelectedValue();
             }
             catch (Exception ex)
             {
