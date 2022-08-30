@@ -190,7 +190,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label7.Font = new System.Drawing.Font("맑은 고딕", 20F, System.Drawing.FontStyle.Bold);
+            this.label7.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold);
             this.label7.Location = new System.Drawing.Point(4, 241);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(252, 48);
@@ -213,7 +213,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label6.Font = new System.Drawing.Font("맑은 고딕", 20F, System.Drawing.FontStyle.Bold);
+            this.label6.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold);
             this.label6.Location = new System.Drawing.Point(4, 193);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(252, 47);
@@ -247,7 +247,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("맑은 고딕", 20F, System.Drawing.FontStyle.Bold);
+            this.label1.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold);
             this.label1.Location = new System.Drawing.Point(4, 1);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(252, 47);
@@ -259,7 +259,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Font = new System.Drawing.Font("맑은 고딕", 20F, System.Drawing.FontStyle.Bold);
+            this.label2.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold);
             this.label2.Location = new System.Drawing.Point(4, 49);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(252, 47);
@@ -271,7 +271,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label3.Font = new System.Drawing.Font("맑은 고딕", 20F, System.Drawing.FontStyle.Bold);
+            this.label3.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold);
             this.label3.Location = new System.Drawing.Point(4, 97);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(252, 47);
@@ -283,7 +283,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label4.Font = new System.Drawing.Font("맑은 고딕", 20F, System.Drawing.FontStyle.Bold);
+            this.label4.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold);
             this.label4.Location = new System.Drawing.Point(4, 145);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(252, 47);
@@ -408,11 +408,9 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(656, 427);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Font = new System.Drawing.Font("맑은 고딕", 10F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frm_CM_Setting";
-            this.ShowIcon = false;
             this.Text = "설정";
             this.Load += new System.EventHandler(this.frm_CM_Setting_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
