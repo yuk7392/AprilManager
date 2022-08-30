@@ -38,8 +38,6 @@ namespace AprilManager
                                 tbProgramSavePath.Text = (e.dataObject[2] as string) + @"\AprilManager.exe";
 
                                 SetDownloadCntLbl();
-
-                                btnDownload.PerformClick();
                             }
                             break;
 
