@@ -1,8 +1,4 @@
-﻿# 1.0.0.7
-콤보박스 관련 기능 추가
-#
-
-# 1.0.0.8
+﻿# 1.0.0.8
 콤보박스 관련 기능 수정
 eComboboxItem엔티티를 통하여 AprilComboBox를 지정하도록 하고, SetSelectedItem, Add, Remove 메서드 추가
 #
@@ -31,4 +27,8 @@ FormBase와 몇몇 CustomControl에 대하여 base 기본값 지정
 
 # 1.0.0.14
 AprilDataGridView 프로퍼티 추가
+#
+
+# 1.0.0.15
+RegistryMgr.GetSubKeyName 기능 추가
 #
