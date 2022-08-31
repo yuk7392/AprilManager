@@ -32,7 +32,3 @@ AprilDataGridView 프로퍼티 추가
 # 1.0.0.15
 RegistryMgr.GetSubKeyName 기능 추가
 #
-
-# 버전명
-테스트
-#
