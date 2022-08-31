@@ -154,7 +154,7 @@ namespace AprilManager
                 cDownloadList.Clear();
                 List<FileInfo> fileInfos = new List<FileInfo>();
 
-                if (!tbProgramSavePath.Text.Equals(AprCommon.DataLinkObject.APPLICATION_LOCATION_WITHOUT_EXENAME)) 
+                if (!cBasePath.Equals(AprCommon.DataLinkObject.APPLICATION_LOCATION_WITHOUT_EXENAME)) 
                 {
                     if (MsgBoxYesNo("설정된 경로와 현 프로그램의 경로가 다릅니다. 그래도 진행하시겠습니까?" + NEWLINE + "프로그램 경로 : " + AprCommon.DataLinkObject.APPLICATION_LOCATION_WITHOUT_EXENAME + NEWLINE + "설정된 경로 : " + cBasePath) != DialogResult.Yes)
                         return;
