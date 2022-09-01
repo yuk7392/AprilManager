@@ -4,6 +4,11 @@
         <name>April.Common</name>
     </assembly>
     <members>
+        <member name="T:April.Common.AprilFormBase">
+            <summary>
+            모든폼이 상속받아야 하는 메인 폼 클래스, 상속을 통해서만 사용
+            </summary>
+        </member>
         <member name="F:April.Common.AprilFormBase.NEWLINE">
             <summary>
             Environment.NewLine 값
@@ -18,6 +23,542 @@
             <summary>
             MousePosition.Y 값
             </summary>
+        </member>
+        <member name="F:April.Common.AprilFormBase.cNotiIcon">
+            <summary>
+            작업표시줄의 아이콘 설정
+            </summary>
+        </member>
+        <member name="M:April.Common.AprilFormBase.#ctor">
+            <summary>
+            생성자, base의 기본코드를 설정한다.
+            </summary>
+        </member>
+        <member name="M:April.Common.AprilFormBase.MsgBoxOK(System.String,System.String,System.Boolean)">
+            <summary>
+            OK 버튼을 가진 메시지 박스를 출력한다.
+            </summary>
+            <param name="pMsg">표시할 메시지</param>
+            <param name="pTitle">제목</param>
+            <param name="pLocalization">선택한 언어에 따른 제목변경, 일단 수정하지 말것</param>
+            <returns>DialogResult</returns>
+        </member>
+        <member name="M:April.Common.AprilFormBase.MsgBoxOkCancel(System.String,System.String,System.Boolean)">
+            <summary>
+            OK, CANCEL 버튼을 가진 메시지 박스를 출력한다.
+            </summary>
+            <param name="pMsg">표시할 메시지</param>
+            <param name="pTitle">제목</param>
+            <param name="pLocalization">선택한 언어에 따른 제목변경, 일단 수정하지 말것</param>
+            <returns>DialogResult</returns>
+        </member>
+        <member name="M:April.Common.AprilFormBase.MsgBoxWarning(System.String,System.String,System.Boolean)">
+            <summary>
+            위험을 알리는 메시지 박스를 출력한다.
+            </summary>
+            <param name="pMsg">표시할 메시지</param>
+            <param name="pTitle">제목</param>
+            <param name="pLocalization">선택한 언어에 따른 제목변경, 일단 수정하지 말것</param>
+            <returns>DialogResult</returns>
+        </member>
+        <member name="M:April.Common.AprilFormBase.MsgBoxError(System.String,System.String,System.Boolean)">
+            <summary>
+            오류를 알리는 메시지 박스를 출력한다.
+            </summary>
+            <param name="pMsg">표시할 메시지</param>
+            <param name="pTitle">제목</param>
+            <param name="pLocalization">선택한 언어에 따른 제목변경, 일단 수정하지 말것</param>
+            <returns>DialogResult</returns>
+        </member>
+        <member name="M:April.Common.AprilFormBase.MsgBoxYesNo(System.String,System.String,System.Boolean)">
+            <summary>
+            Yes, No 버튼을 가진 메시지 박스를 출력한다.
+            </summary>
+            <param name="pMsg">표시할 메시지</param>
+            <param name="pTitle">제목</param>
+            <param name="pLocalization">선택한 언어에 따른 제목변경, 일단 수정하지 말것</param>
+            <returns>DialogResult</returns>
+        </member>
+        <member name="M:April.Common.AprilFormBase.MsgBoxYesNoCancel(System.String,System.String,System.Boolean)">
+            <summary>
+            Yes, No, Cancel 버튼을 가진 메시지 박스를 출력한다.
+            </summary>
+            <param name="pMsg">표시할 메시지</param>
+            <param name="pTitle">제목</param>
+            <param name="pLocalization">선택한 언어에 따른 제목변경, 일단 수정하지 말것</param>
+            <returns>DialogResult</returns>
+        </member>
+        <member name="M:April.Common.AprilFormBase.MsgBox(System.String,System.String,System.Windows.Forms.MessageBoxButtons,System.Windows.Forms.MessageBoxIcon,System.Boolean)">
+            <summary>
+            메시지 박스를 출력한다.
+            </summary>
+            <param name="pMsg">메시지</param>
+            <param name="pTitle">제목</param>
+            <param name="pMsgBtn">버튼</param>
+            <param name="pMsgIcon">아이콘</param>
+            <param name="pLocalization">선택한 언어에 따른 제목변경, 일단 수정하지 말것</param>
+            <returns>DialogResult</returns>
+        </member>
+        <member name="M:April.Common.AprilFormBase.ShowWaitScreen">
+            <summary>
+            로딩화면을 표시한다.
+            </summary>
+        </member>
+        <member name="M:April.Common.AprilFormBase.CloseWaitScreen">
+            <summary>
+            로딩화면을 종료한다.
+            </summary>
+        </member>
+        <member name="M:April.Common.AprilFormBase.ShowOpenFileDialog(System.String,System.String,System.Int32)">
+            <summary>
+            파일탐색 화면을 연다.
+            </summary>
+            <param name="pTitle">제목</param>
+            <param name="pFilter">필터, 표시|필터 형식으로 반복하여 작성 (예시 : ALL FILES(*.*)|*.*)</param>
+            <param name="pFilterIndex">설정한 필터중에서, 처음 표시할 필터의 index</param>
+            <returns>경로</returns>
+        </member>
+        <member name="M:April.Common.AprilFormBase.ShowSaveFileDialog(System.String,System.String,System.String,System.Int32,System.Boolean)">
+            <summary>
+            파일 저장 화면을 연다.
+            </summary>
+            <param name="pTitle">제목</param>
+            <param name="pFileName">저장할 파일명</param>
+            <param name="pFilter">필터, 표시|필터 형식으로 반복하여 작성 (예시 : ALL FILES(*.*)|*.*)</param>
+            <param name="pFilterIndex">설정한 필터중에서, 처음 표시할 필터의 index</param>
+            <param name="pOverwritePrompt">덮어쓰기 경고문을 표시할지 여부</param>
+            <returns>경로</returns>
+        </member>
+        <member name="M:April.Common.AprilFormBase.ShowColorDialog">
+            <summary>
+            색상 선택 화면을 연다.
+            </summary>
+            <returns>Color</returns>
+        </member>
+        <member name="M:April.Common.AprilFormBase.ShowFolderBrowserDialog(System.Windows.Forms.Control)">
+            <summary>
+            폴더 탐색 화면을 연다.
+            </summary>
+            <param name="pControl">? - 입력하지 말것</param>
+            <returns>경로</returns>
+        </member>
+        <member name="M:April.Common.AprilFormBase.GetDateFromPicker">
+            <summary>
+            날짜 시간 선택 화면을 연다.
+            </summary>
+            <returns>DateTime</returns>
+        </member>
+        <member name="M:April.Common.AprilFormBase.ShowEnterDialog(System.String)">
+            <summary>
+            입력 화면을 연다.
+            </summary>
+            <param name="pMessage">입력 화면에 표시되는 메시지</param>
+            <returns>입력된 메시지</returns>
+        </member>
+        <member name="M:April.Common.AprilFormBase.Received_DTO(April.Common.DTOEventArgs)">
+            <summary>
+            DTO를 받았을 때 실행하는 메서드, 각 AprilFormBase 폼마다 override 해서 사용한다.
+            </summary>
+            <param name="e">DTOEventArgs</param>
+        </member>
+        <member name="M:April.Common.AprilFormBase.ShowNotification(System.Int32,System.String,System.String,System.Windows.Forms.ToolTipIcon)">
+            <summary>
+            알림 메시지를 표시한다. NotifyIcon이 null이 아니여야 한다.
+            </summary>
+            <param name="pTime">표시되어 있을 시간(초)</param>
+            <param name="pTitle">제목</param>
+            <param name="pContext">내용</param>
+            <param name="pIcon">아이콘</param>
+        </member>
+        <member name="M:April.Common.AprilFormBase.ShowPasswordDialog">
+            <summary>
+            비밀번호 입력 화면을 연다.
+            </summary>
+            <returns>비밀번호 값</returns>
+        </member>
+        <member name="M:April.Common.AprilFormBase.ShowDownloadDialog(System.Collections.Generic.List{April.Common.eDownloadFile},System.Boolean)">
+            <summary>
+            다운로드 화면을 연다.
+            </summary>
+            <param name="pDownloadFileList">eDownloadFile의 리스트</param>
+            <param name="pCloseFormOnFinish">다운로드 완료시 자동으로 화면을 종료할지 여부</param>
+        </member>
+        <member name="T:April.Common.AprilFormBaseExtension">
+            <summary>
+            AprilFormBase 확장 메서드 클래스
+            </summary>
+        </member>
+        <member name="M:April.Common.AprilFormBaseExtension.Run(System.Windows.Forms.Control,System.Windows.Forms.MethodInvoker)">
+            <summary>
+            MultiThreading 상황에서 BeginInvoke 대신에 사용할 수 있는 메서드
+            </summary>
+            <param name="pCtrl">컨트롤</param>
+            <param name="pMethodInvoker">delegate</param>
+        </member>
+        <member name="M:April.Common.AprilScriptMgr.OpenAprilScriptMgr">
+            <summary>
+            April Script Manager를 연다.
+            </summary>
+        </member>
+        <member name="M:April.Common.AprilScriptMgr.InterpretStringScript(System.String)">
+            <summary>
+            명령어를 해석하고 실행한다.
+            </summary>
+            <param name="pCommands">스크립트 내용</param>
+            <returns></returns>
+        </member>
+        <member name="M:April.Common.AprilScriptMgr.InterpretStringScript(System.String,System.Windows.Forms.Control,System.Windows.Forms.ProgressBar)">
+            <summary>
+            명령어를 해석하고 실행한다. 프로그래스바를 넘기면 자동으로 진행률을 바꾼다.
+            </summary>
+            <param name="pCommands">스크립트 내용</param>
+            <param name="pCtrl">컨트롤</param>
+            <param name="pPgBar">프로그래스바</param>
+        </member>
+        <member name="M:April.Common.AprilScriptMgr.ReplaceVariable(System.String)">
+            <summary>
+            스크립트에 사용된 문자를 치환한다.
+            </summary>
+            <param name="pList">스크립트 내용</param>
+            <returns></returns>
+        </member>
+        <member name="T:April.Common.AprilScriptMgrExtension">
+            <summary>
+            April Script Manager의 확장메서드 클래스
+            </summary>
+        </member>
+        <member name="T:April.Common.AprParser">
+            <summary>
+            다양한 파싱을 지원하는 클래스
+            </summary>
+        </member>
+        <member name="M:April.Common.AprParser.ParseSharpContext(System.String,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String})">
+            <summary>
+            #으로 시작과 끝을 알리는 데이터를 파싱한다.
+            <para/>* ChangeLog 형식참고.
+            </summary>
+            <param name="pContext">내용</param>
+            <param name="pVersion">버전을 담을 리스트</param>
+            <param name="pChangeLogs">내용을 담을 리스트</param>
+        </member>
+        <member name="T:April.Common.ControlPosition">
+            <summary>
+            컨트롤의 위치
+            </summary>
+        </member>
+        <member name="T:April.Common.FileSizeType">
+            <summary>
+            파일 크기 형식
+            </summary>
+        </member>
+        <member name="T:April.Common.MoveGridType">
+            <summary>
+            그리드 이동 방식
+            </summary>
+        </member>
+        <member name="T:April.Common.AprCommon">
+            <summary>
+            공용으로 사용되는 클래스, 설정된 DataLinkObject가 저장되는 클래스.
+            </summary>
+        </member>
+        <member name="F:April.Common.AprCommon.DataLinkObject">
+            <summary>
+            초기 설정시 수집한 정보가 담겨있는 DataLinkObject
+            </summary>
+        </member>
+        <member name="M:April.Common.AprCommon.SetDataLinkObject(April.Common.DataLinkObject,System.Boolean)">
+            <summary>
+            AprCommon의 DataLinkObject를 교체한다.
+            </summary>
+            <param name="pDataLinkObject">DataLinkObject</param>
+            <param name="pStartDefaultProc">기본기능 수행 여부, 수정하지 말것</param>
+            <returns></returns>
+        </member>
+        <member name="M:April.Common.AprCommon.AppendString(System.Boolean,System.String[])">
+            <summary>
+            입력한 개별의 string을 연결시킨다.
+            </summary>
+            <param name="pNewLineForEachFlag">각 string 마다 줄바꿈을 할지 여부</param>
+            <param name="pStrs">n개의 string</param>
+            <returns>연결된 string</returns>
+        </member>
+        <member name="M:April.Common.AprCommon.StartDefaultProc">
+            <summary>
+            기본기능을 수행한다. 언어설정과, 업데이트 후 남은 파일을 제거한다.
+            </summary>
+        </member>
+        <member name="M:April.Common.AprCommon.GetPwStrength(System.String)">
+            <summary>
+            입력한 비밀번호의 강도를 측정한다.
+            </summary>
+            <param name="pStr">비밀번호</param>
+            <returns>1~5까지의 숫자, 높을수록 강도가 높다.</returns>
+        </member>
+        <member name="M:April.Common.AprCommon.ChanceOf(System.Int32)">
+            <summary>
+            확률의 당첨 여부를 반환한다.
+            </summary>
+            <param name="pChance">확률</param>
+            <returns>당첨 여부</returns>
+        </member>
+        <member name="M:April.Common.AprCommon.ChanceOf(System.Double)">
+            <summary>
+            확률의 당첨 여부를 반환한다.
+            </summary>
+            <param name="pChance">확률</param>
+            <returns></returns>
+        </member>
+        <member name="M:April.Common.AprCommon.GetRandNum(System.Int32,System.Int32)">
+            <summary>
+            렌덤 값을 반환한다.
+            </summary>
+            <param name="pMin">최솟값</param>
+            <param name="pMax">최댓값</param>
+            <returns>렌덤 값</returns>
+        </member>
+        <member name="M:April.Common.AprCommon.SetControlPosition(System.Windows.Forms.Control,System.Windows.Forms.Control,System.Boolean,April.Common.ControlPosition,System.Boolean)">
+            <summary>
+            컨트롤의 위치를 설정한다.
+            </summary>
+            <param name="pMovingControl">움직일 컨트롤</param>
+            <param name="pProvideControl">기준이 되는 컨트롤</param>
+            <param name="pExactLocation">움직일 컨트롤이 정확히 기준이 되는 컨트롤에 위치할지 여부</param>
+            <param name="pPosition">ControlPosition</param>
+            <param name="pChngAnchorFlag">Anchor를 자동으로 교체할지 여부</param>
+        </member>
+        <member name="M:April.Common.AprCommon.SetLocationToCenter(System.Windows.Forms.Control,System.Windows.Forms.Control,System.Windows.Forms.AnchorStyles)">
+            <summary>
+            컨트롤을 가운데에 위치시킨다.
+            </summary>
+            <param name="pProvideControl">기준이 되는 컨트롤</param>
+            <param name="pMovingControl">움직일 컨트롤</param>
+            <param name="pAnchor">Anchor 값</param>
+        </member>
+        <member name="M:April.Common.AprCommon.ConvertFileSize(System.Int64,April.Common.FileSizeType)">
+            <summary>
+            파일 크기를 변환한다.
+            </summary>
+            <param name="pFileSize">파일 사이즈</param>
+            <param name="pFileSizeType">FileSizeType</param>
+            <returns></returns>
+        </member>
+        <member name="M:April.Common.AprCommon.SetCbo(System.Windows.Forms.ComboBox,System.String)">
+            <summary>
+            콤보박스의 아이템을 지정한다.
+            </summary>
+            <param name="pCombobox">콤보박스</param>
+            <param name="pCboItem">아이템 이름</param>
+        </member>
+        <member name="M:April.Common.AprCommon.SetDirTreeView(System.Windows.Forms.TreeView,System.String)">
+            <summary>
+            경로의 파일구조를 TreeView에 표시한다.
+            </summary>
+            <param name="pTreeView">TreeView</param>
+            <param name="pPath">경로</param>
+        </member>
+        <member name="M:April.Common.AprCommon.GetRootNode(System.Windows.Forms.TreeView)">
+            <summary>
+            최상위 노드를 반환한다.
+            </summary>
+            <param name="pTreeView">TreeView</param>
+            <returns></returns>
+        </member>
+        <member name="M:April.Common.AprCommon.GetNodeListByName(System.Windows.Forms.TreeView,System.String,System.Boolean)">
+            <summary>
+            조건에 일치하는 노드들의 리스트를 반환한다.
+            </summary>
+            <param name="pTreeView">TreeView</param>
+            <param name="pSearchText">검색어</param>
+            <param name="pExactWord">정확히 일치하는 항목만 가져올지 여부</param>
+            <returns></returns>
+        </member>
+        <member name="M:April.Common.AprCommon.GetFactorial(System.Int32)">
+            <summary>
+            펙토리얼을 구한다.
+            </summary>
+            <param name="pNumber">구할 펙토리얼 수</param>
+            <returns></returns>
+        </member>
+        <member name="M:April.Common.AprCommon.IsAdminPrivileges">
+            <summary>
+            관리자 권한으로 실행중인지 확인한다.
+            </summary>
+            <returns>관리자 권한의 여부</returns>
+        </member>
+        <member name="M:April.Common.AprCommon.SetClipboard(System.String)">
+            <summary>
+            클립보드에 텍스트를 복사한다.
+            </summary>
+            <param name="pText">복사할 텍스트</param>
+        </member>
+        <member name="M:April.Common.AprCommon.ConvertToDataTable(System.Windows.Forms.DataGridView)">
+            <summary>
+            DataGridView를 DataTable로 변환한다.
+            </summary>
+            <param name="pDataGridView">DataGridView</param>
+            <returns>DataTable</returns>
+        </member>
+        <member name="M:April.Common.AprCommon.MoveGridRow(System.Windows.Forms.DataGridView,April.Common.MoveGridType)">
+            <summary>
+            실제 DataSource를 수정하여 그리드의 Row위치를 옮긴다.
+            </summary>
+            <param name="pDataGridView">DataGridView</param>
+            <param name="pMoveGridType">MoveGridType</param>
+        </member>
+        <member name="M:April.Common.AprCommon.ReplaceBrText(System.String,System.String)">
+            <summary>
+            줄바꿈 문자나 기타 문자들을 치환한다.
+            </summary>
+            <param name="pString">문자가 포함된 대상</param>
+            <param name="pReplaceString">변경할 문자</param>
+            <returns></returns>
+        </member>
+        <member name="T:April.Common.CommonExtension">
+            <summary>
+            AprCommon 확장 메서드 클래스
+            </summary>
+        </member>
+        <member name="M:April.Common.CommonExtension.AppendNewLine(System.String)">
+            <summary>
+            줄바꿈 문자를 삽입한다.
+            </summary>
+            <param name="pStr">입력된 문자</param>
+            <returns></returns>
+        </member>
+        <member name="M:April.Common.CommonExtension.RemoveString(System.String,System.String)">
+            <summary>
+            문자를 삭제한다.
+            </summary>
+            <param name="pStr1">입력된 문자</param>
+            <param name="pStr">삭제할 문자</param>
+            <returns></returns>
+        </member>
+        <member name="M:April.Common.CommonExtension.IsNaN(System.String)">
+            <summary>
+            숫자인지 아닌지 여부를 알려준다.
+            </summary>
+            <param name="pStr">판단할 문자</param>
+            <returns>숫자인지 여부</returns>
+        </member>
+        <member name="M:April.Common.CommonExtension.Join(System.String[],System.String)">
+            <summary>
+            배열의 요소 하나하나마다 문자를 붙여 연결시킨 문자를 반환한다.
+            </summary>
+            <param name="pStrarr">배열</param>
+            <param name="pSeparatorChar">연결 문자</param>
+            <returns></returns>
+        </member>
+        <member name="M:April.Common.CommonExtension.SplitString(System.String,System.StringSplitOptions,System.String[])">
+            <summary>
+            string 형의 문자를 분리하고 결과를 반환한다.
+            </summary>
+            <param name="pStrArr">분리할 문자</param>
+            <param name="pSso">StringSplitOption</param>
+            <param name="pSepString">분리 기준이 되는 n개의 문자</param>
+            <returns></returns>
+        </member>
+        <member name="M:April.Common.CommonExtension.Sort(System.Array,System.Boolean)">
+            <summary>
+            정렬한다.
+            </summary>
+            <param name="pArr">정렬할 배열</param>
+            <param name="pAscFlag">오름차순 여부</param>
+        </member>
+        <member name="M:April.Common.CommonExtension.ConvertToString(System.Array)">
+            <summary>
+            배열을 string 배열로 변환한다.
+            </summary>
+            <param name="pArr">변환할 배열</param>
+            <returns></returns>
+        </member>
+        <member name="M:April.Common.CommonExtension.ToInt(System.String)">
+            <summary>
+            Int형으로 변환한다.
+            </summary>
+            <param name="pStr">변환할 문자</param>
+            <returns></returns>
+        </member>
+        <member name="M:April.Common.CommonExtension.TypeToString(System.Object)">
+            <summary>
+            항목의 타입명을 string으로 반환한다.
+            </summary>
+            <param name="pObject">항목</param>
+            <returns>항목 타입명</returns>
+        </member>
+        <member name="M:April.Common.CommonExtension.RemoveExtension(System.String)">
+            <summary>
+            확장자를 제거한다.
+            </summary>
+            <param name="pString">제거할 파일명</param>
+            <returns></returns>
+        </member>
+        <member name="T:April.Common.AprConstant">
+            <summary>
+            상수를 저장하는 클래스
+            </summary>
+        </member>
+        <member name="F:April.Common.AprConstant.SECUREPASSWD">
+            <summary>
+            보안 비밀번호
+            </summary>
+        </member>
+        <member name="F:April.Common.AprConstant.DEFAULTSECUREPASSWD">
+            <summary>
+            기본 보안 비밀번호
+            </summary>
+        </member>
+        <member name="F:April.Common.AprConstant.DEFAULT_FONT">
+            <summary>
+            기본 폰트 (맑은 고딕, 10pt)
+            </summary>
+        </member>
+        <member name="T:April.Common.CsvMgr">
+            <summary>
+            Csv파일 관련 클래스
+            </summary>
+        </member>
+        <member name="M:April.Common.CsvMgr.ConvToCsvData(System.String[])">
+            <summary>
+            Csv 데이터로 변환한다.
+            </summary>
+            <param name="pStrs">n개의 문자</param>
+            <returns>변환된 문자</returns>
+        </member>
+        <member name="M:April.Common.CsvMgr.ConvCsvData(System.String)">
+            <summary>
+            Csv 형식을 해석한다.
+            </summary>
+            <param name="pStr">Csv 형식의 문자</param>
+            <returns>해석된 배열</returns>
+        </member>
+        <member name="M:April.Common.CsvMgr.Integrate(System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.Collections.Generic.List{System.String}})">
+            <summary>
+            Csv 테이블을 생성한다.
+            </summary>
+            <param name="pColumn">컬럼 리스트</param>
+            <param name="pRows">Row 리스트</param>
+            <returns>Csv 테이블 문자</returns>
+        </member>
+        <member name="M:April.Common.CsvMgr.IsEqual(System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String})">
+            <summary>
+            동일항목인지 확인한다.
+            </summary>
+            <param name="pList1">Row 1</param>
+            <param name="pList2">Row 2</param>
+            <returns>동일한지 여부</returns>
+        </member>
+        <member name="T:April.Common.cCsvMgrExtension">
+            <summary>
+            Csv파일 관련 확장 메서드 클래스
+            </summary>
+        </member>
+        <member name="M:April.Common.cCsvMgrExtension.IsEqualTo(System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String})">
+            <summary>
+            동일한지 여부를 판단한다.
+            </summary>
+            <param name="pList1">비교할 항목</param>
+            <param name="pList2">비교 항목</param>
+            <returns>동일한지 여부</returns>
         </member>
         <member name="F:April.Common.frm_CM_Download.components">
             <summary>
@@ -70,9 +611,714 @@
             the contents of this method with the code editor.
             </summary>
         </member>
+        <member name="M:April.Common.AprilMDITabControl.Add(April.Common.AprilFormBase,System.Boolean)">
+            <summary>
+            신규 텝을 추가한다.
+            </summary>
+            <param name="pForm">AprilFormBase 폼</param>
+            <param name="pAllowDuplicate">중복으로 여러개 열 수 있게 설정할지 여부</param>
+        </member>
+        <member name="M:April.Common.AprilComboBox.GetSelectedValue">
+            <summary>
+            선택된 값을 불러온다.
+            </summary>
+            <returns>값</returns>
+        </member>
+        <member name="M:April.Common.AprilComboBox.AddItem(System.String,System.String)">
+            <summary>
+            항목을 추가한다.
+            </summary>
+            <param name="pDisplayText">표시되는 텍스트</param>
+            <param name="pValue">값</param>
+        </member>
+        <member name="M:April.Common.AprilComboBox.RemoveItem(System.String)">
+            <summary>
+            항목을 삭제한다.
+            </summary>
+            <param name="pDisplayText">표시되는 항목의 이름</param>
+        </member>
+        <member name="M:April.Common.AprilComboBox.SetSelectedItem(System.String)">
+            <summary>
+            아이템을 선택한다.
+            </summary>
+            <param name="pDisplayText">표시되는 항목의 이름</param>
+        </member>
+        <member name="T:April.Common.DataLinkObject">
+            <summary>
+            다양한 수집정보를 담는 클래스
+            </summary>
+        </member>
+        <member name="P:April.Common.DataLinkObject.APPLICATION_NAME">
+            <summary>
+            실행하고 있는 프로그램의 이름
+            </summary>
+        </member>
+        <member name="P:April.Common.DataLinkObject.APPLICATION_VERSION">
+            <summary>
+            실행하고 있는 프로그램의 버전
+            </summary>
+        </member>
+        <member name="P:April.Common.DataLinkObject.APPLICATION_LOCATION">
+            <summary>
+            실행하고 있는 프로그램의 경로
+            </summary>
+        </member>
+        <member name="P:April.Common.DataLinkObject.APPLICATION_LOCATION_WITHOUT_EXENAME">
+            <summary>
+            실행하고 있는 프로그램의 exe 파일명을 제외한 경로
+            </summary>
+        </member>
+        <member name="P:April.Common.DataLinkObject.APPLICATION_EXENAME">
+            <summary>
+            실행하고 있는 프로그램의 exe 파일 이름
+            </summary>
+        </member>
+        <member name="P:April.Common.DataLinkObject.APPLICATION_EXENAME_WITHOUT_EXTENSION">
+            <summary>
+            실행하고 있는 프로그램의 확장자가 없는 exe 파일 이름
+            </summary>
+        </member>
+        <member name="P:April.Common.DataLinkObject.APPLICATION_LANGUAGE">
+            <summary>
+            실행하고 있는 프로그램의 설정된 언어
+            </summary>
+        </member>
         <member name="P:April.Common.DataLinkObject.APPLICATION_APP_DIRECTORY">
             <summary>
             로그를 저장하는 C:\/April/ApplicationName 위치
+            </summary>
+        </member>
+        <member name="F:April.Common.DataLinkObject.DLL_NAME">
+            <summary>
+            DLL 이름
+            </summary>
+        </member>
+        <member name="F:April.Common.DataLinkObject.DLL_VERSION">
+            <summary>
+            DLL 버전
+            </summary>
+        </member>
+        <member name="F:April.Common.DataLinkObject.DLL_NAMESPACE">
+            <summary>
+            DLL Namespace
+            </summary>
+        </member>
+        <member name="P:April.Common.DataLinkObject.MACHINE_NAME">
+            <summary>
+            컴퓨터 이름
+            </summary>
+        </member>
+        <member name="M:April.Common.DataLinkObject.#ctor">
+            <summary>
+            생성자. 자료를 설정한다.
+            </summary>
+        </member>
+        <member name="T:April.Common.DateDiffType">
+            <summary>
+            날짜 차이 형식
+            </summary>
+        </member>
+        <member name="T:April.Common.DateMgr">
+            <summary>
+            날짜 관련 클래스
+            </summary>
+        </member>
+        <member name="M:April.Common.DateMgr.Today(System.String)">
+            <summary>
+            오늘 날짜를 형식에 맞춰 가져온다.
+            </summary>
+            <param name="pFormat">날짜 형식</param>
+            <returns>날짜</returns>
+        </member>
+        <member name="M:April.Common.DateMgr.IsDate(System.String)">
+            <summary>
+            날짜형식인지 확인한다.
+            </summary>
+            <param name="pDateStr">날짜 문자</param>
+            <returns>날짜 형식 여부</returns>
+        </member>
+        <member name="M:April.Common.DateMgr.IsValidDate(System.String,System.String,System.String)">
+            <summary>
+            형식에 맞는 날짜인지 확인한다.
+            </summary>
+            <param name="pDateStr">날짜</param>
+            <param name="pDateStrFormat">날짜형식</param>
+            <param name="pProvider">지역코드</param>
+            <returns>형식에 맞는 날짜인지 여부</returns>
+        </member>
+        <member name="M:April.Common.DateMgr.DateDiff(System.DateTime,System.DateTime,April.Common.DateDiffType)">
+            <summary>
+            날짜 차이를 가져온다.
+            </summary>
+            <param name="pDate1">비교날짜 1</param>
+            <param name="pDate2">비교날짜 2</param>
+            <param name="pReturn">DateDiffType</param>
+            <returns></returns>
+        </member>
+        <member name="M:April.Common.DateMgr.DayOfWeek(System.String,System.Boolean)">
+            <summary>
+            요일을 가져온다.
+            </summary>
+            <param name="pDate">날짜</param>
+            <param name="pKorFlag">한국어로 반환할지 여부</param>
+            <returns></returns>
+        </member>
+        <member name="M:April.Common.DateMgr.IsLeapYear(System.Int32)">
+            <summary>
+            윤년인지 확인한다.
+            </summary>
+            <param name="pYear">년도</param>
+            <returns>윤년 여부</returns>
+        </member>
+        <member name="M:April.Common.DateMgr.IsExactDate(System.String,System.String,System.Globalization.DateTimeStyles)">
+            <summary>
+            날짜 형식에 정확히 일치하는 날짜인지 확인한다.
+            </summary>
+            <param name="pDate">날짜</param>
+            <param name="pDateFormat">날짜 형식</param>
+            <param name="pDts">DateTimeStyle</param>
+            <returns>일치 여부</returns>
+        </member>
+        <member name="M:April.Common.DateMgr.ConvertDateFormat(System.String@,System.String,System.String)">
+            <summary>
+            날짜 형식을 변환한다.
+            </summary>
+            <param name="pSrcDate">날짜, 해당 변수에 변경된 값이 저장된다.</param>
+            <param name="pSrcDateFormat">날짜의 형식</param>
+            <param name="pDateFormat">변경할 날짜 형식</param>
+            <returns>변경되었는지 여부</returns>
+        </member>
+        <member name="T:April.Common.DateMgrExtension">
+            <summary>
+            날짜 확장 메서드 클래스
+            </summary>
+        </member>
+        <member name="M:April.Common.DateMgrExtension.AddDays(System.String,System.Double)">
+            <summary>
+            일수를 가감한다.
+            </summary>
+            <param name="pDateStr">날짜 문자</param>
+            <param name="pDays">가감할 일 수</param>
+            <returns>변경된 날짜</returns>
+        </member>
+        <member name="M:April.Common.DateMgrExtension.AddDays(System.DateTime,System.Double)">
+            <summary>
+            일수를 가감한다
+            </summary>
+            <param name="pDate">날짜</param>
+            <param name="pDays">가감할 일 수</param>
+            <returns>변경된 날짜</returns>
+        </member>
+        <member name="M:April.Common.DateMgrExtension.AddYears(System.String,System.Int32)">
+            <summary>
+            년도를 가감한다.
+            </summary>
+            <param name="pDateStr">날짜 문자</param>
+            <param name="pYears">가감할 년도 수</param>
+            <returns>변경된 날짜</returns>
+        </member>
+        <member name="M:April.Common.DateMgrExtension.AddYears(System.DateTime,System.Int32)">
+            <summary>
+            년도를 가감한다.
+            </summary>
+            <param name="pDate">날짜</param>
+            <param name="pYears">가감할 년도 수</param>
+            <returns>변경된 날짜</returns>
+        </member>
+        <member name="M:April.Common.DateMgrExtension.AddMonths(System.String,System.Int32)">
+            <summary>
+            월을 가감한다.
+            </summary>
+            <param name="pDateStr">날짜 문자</param>
+            <param name="pMonths">가감할 월의 수</param>
+            <returns>변경된 날짜</returns>
+        </member>
+        <member name="M:April.Common.DateMgrExtension.AddMonths(System.DateTime,System.Int32)">
+            <summary>
+            월을 가감한다.
+            </summary>
+            <param name="pDate">날짜</param>
+            <param name="pMonths">가감할 월의 수</param>
+            <returns>변경된 날짜</returns>
+        </member>
+        <member name="M:April.Common.DateMgrExtension.AddHours(System.String,System.Double)">
+            <summary>
+            시간을 가감한다.
+            </summary>
+            <param name="pDateStr">날짜 문자</param>
+            <param name="pHours">가감할 시간의 수</param>
+            <returns>변경된 날짜</returns>
+        </member>
+        <member name="M:April.Common.DateMgrExtension.AddHours(System.DateTime,System.Double)">
+            <summary>
+            시간을 가감한다.
+            </summary>
+            <param name="pDate">날짜</param>
+            <param name="pHours">가감할 시간의 수</param>
+            <returns>변경된 날짜</returns>
+        </member>
+        <member name="M:April.Common.DateMgrExtension.AddMinutes(System.String,System.Double)">
+            <summary>
+            분을 가감한다
+            </summary>
+            <param name="pDateStr">날짜 문자</param>
+            <param name="pMinutes">가감할 분의 수</param>
+            <returns>변경된 날짜</returns>
+        </member>
+        <member name="M:April.Common.DateMgrExtension.AddMinutes(System.DateTime,System.Double)">
+            <summary>
+            분을 가감한다
+            </summary>
+            <param name="pDate">날짜</param>
+            <param name="pMinutes">가감할 분의 수</param>
+            <returns>변경된 날짜</returns>
+        </member>
+        <member name="M:April.Common.DateMgrExtension.AddSeconds(System.String,System.Double)">
+            <summary>
+            초를 가감한다.
+            </summary>
+            <param name="pDateStr">날짜 문자</param>
+            <param name="pSeconds">가감할 초의 수</param>
+            <returns>변경된 날짜</returns>
+        </member>
+        <member name="M:April.Common.DateMgrExtension.AddSeconds(System.DateTime,System.Double)">
+            <summary>
+            초를 가감한다.
+            </summary>
+            <param name="pDate">날짜</param>
+            <param name="pSeconds">가감할 초의 수</param>
+            <returns>변경된 날짜</returns>
+        </member>
+        <member name="M:April.Common.DateMgrExtension.ToDate(System.String)">
+            <summary>
+            날짜 형식으로 변환한다.
+            </summary>
+            <param name="pStr">날짜 문자</param>
+            <returns>DateTime</returns>
+        </member>
+        <member name="M:April.Common.DateMgrExtension.ConvertFormat(System.String,System.String,System.String)">
+            <summary>
+            날짜 형식을 교체한다.
+            </summary>
+            <param name="pStr">변경할 문자</param>
+            <param name="pStrDateFormat">변경할 문자 날짜 형식</param>
+            <param name="pDateFormat">변경할 날짜 형식</param>
+            <returns>변경한 문자</returns>
+        </member>
+        <member name="T:April.Common.FileMgr">
+            <summary>
+            파일 관련 클래스
+            </summary>
+        </member>
+        <member name="M:April.Common.FileMgr.CreateDir(System.String)">
+            <summary>
+            폴더를 생성한다.
+            </summary>
+            <param name="pPath">경로</param>
+            <returns>생성 성공여부</returns>
+        </member>
+        <member name="M:April.Common.FileMgr.DeleteDir(System.String,System.Boolean)">
+            <summary>
+            폴더를 삭제한다.
+            </summary>
+            <param name="pPath">경로</param>
+            <param name="pRecursive">하위 폴더도 삭제할지 여부</param>
+            <returns>삭제 여부</returns>
+        </member>
+        <member name="M:April.Common.FileMgr.MoveDir(System.String,System.String)">
+            <summary>
+            폴더를 옮긴다.
+            </summary>
+            <param name="pPath">폴더 위치</param>
+            <param name="pPath2">옮길 위치</param>
+            <returns>성공 여부</returns>
+        </member>
+        <member name="M:April.Common.FileMgr.Create(System.String)">
+            <summary>
+            파일을 생성한다.
+            </summary>
+            <param name="pPath">경로</param>
+            <returns>생성 성공 여부</returns>
+        </member>
+        <member name="M:April.Common.FileMgr.Delete(System.String)">
+            <summary>
+            파일을 삭제한다.
+            </summary>
+            <param name="pPath">경로</param>
+            <returns>삭제 성공 여부</returns>
+        </member>
+        <member name="M:April.Common.FileMgr.Copy(System.String,System.String,System.Boolean)">
+            <summary>
+            파일을 복사한다.
+            </summary>
+            <param name="pSourcePath">파일 위치</param>
+            <param name="pDestPath">옮길 파일 위치</param>
+            <param name="pOverwrite">덮어쓰기 여부</param>
+            <returns>성공 여부</returns>
+        </member>
+        <member name="M:April.Common.FileMgr.Move(System.String,System.String)">
+            <summary>
+            파일을 이동한다.
+            </summary>
+            <param name="pSourcePath">파일 위치</param>
+            <param name="pDestPath">옮길 파일 위치</param>
+            <returns></returns>
+        </member>
+        <member name="M:April.Common.FileMgr.Write(System.String,System.String,System.Boolean)">
+            <summary>
+            파일을 작성한다.
+            </summary>
+            <param name="pPath">파일 경로</param>
+            <param name="pContent">내용</param>
+            <param name="pOverwrite">덮어쓰기 여부</param>
+        </member>
+        <member name="M:April.Common.FileMgr.Open(System.String)">
+            <summary>
+            파일의 내용을 반환한다.
+            </summary>
+            <param name="pPath">파일 경로</param>
+            <returns>파일 내용</returns>
+        </member>
+        <member name="M:April.Common.FileMgr.Unzip(System.String,System.String)">
+            <summary>
+            파일 압축을 해제한다.
+            </summary>
+            <param name="pZipFilePath">압축파일 위치</param>
+            <param name="pExtractPath">추출 위치</param>
+        </member>
+        <member name="M:April.Common.FileMgr.GetAllFilesName(System.String,System.Boolean)">
+            <summary>
+            경로상 모든 파일의 이름을 가져온다.
+            </summary>
+            <param name="pPath">경로</param>
+            <param name="pIncludeExtension">확장자 포함 여부</param>
+            <returns>파일이름 배열</returns>
+        </member>
+        <member name="M:April.Common.FileMgr.CleanUpUpdate">
+            <summary>
+            업데이트 후 남은 잔여파일을 제거한다.
+            </summary>
+            <returns>삭제한 파일 개수</returns>
+        </member>
+        <member name="M:April.Common.FileMgr.Exists(System.String)">
+            <summary>
+            파일 또는 폴더가 존재하는지 확인한다.
+            </summary>
+            <param name="pPath">경로</param>
+            <returns>존재 여부</returns>
+        </member>
+        <member name="M:April.Common.FileMgr.ChangeExtension(System.String,System.String)">
+            <summary>
+            확장자를 변경한다.
+            </summary>
+            <param name="pPath">파일 경로</param>
+            <param name="pExtension">변경할 확장자</param>
+            <returns>? - 변경된 경로</returns>
+        </member>
+        <member name="M:April.Common.FileMgr.GetFileExtension(System.String,System.Boolean)">
+            <summary>
+            파일의 확장자를 가져온다.
+            </summary>
+            <param name="pFileName">파일이름이 포함된 경로</param>
+            <param name="pDotExcluded">점을 포함한 확장자를 반환할지 여부</param>
+            <returns>확장자명</returns>
+        </member>
+        <member name="M:April.Common.FileMgr.GetFileSize(System.String)">
+            <summary>
+            파일 사이즈를 반환한다.
+            </summary>
+            <param name="pPath">파일 경로</param>
+            <returns>파일 크기</returns>
+        </member>
+        <member name="M:April.Common.FileMgr.GetDirectorySize(System.String)">
+            <summary>
+            폴더 크기를 반환한다.
+            </summary>
+            <param name="pPath">폴더 경로</param>
+            <returns>폴더 크기</returns>
+        </member>
+        <member name="T:April.Common.FileMgrExtension">
+            <summary>
+            파일 확장 메서드 클래스
+            </summary>
+        </member>
+        <member name="M:April.Common.FileMgrExtension.Exists(System.String)">
+            <summary>
+            파일 또는 폴더가 존재하는지 확인한다.
+            </summary>
+            <param name="pPath">경로</param>
+            <returns>존재 여부</returns>
+        </member>
+        <member name="M:April.Common.FileMgrExtension.GetFileExtension(System.String,System.Boolean)">
+            <summary>
+            파일의 확장자를 가져온다.
+            </summary>
+            <param name="pFileName">파일이름이 포함된 경로</param>
+            <param name="pDotExcluded">점을 포함한 확장자를 반환할지 여부</param>
+            <returns>확장자명</returns>
+        </member>
+        <member name="T:April.Common.LogMgr">
+            <summary>
+            로그를 작성하는 클래스
+            </summary>
+        </member>
+        <member name="M:April.Common.LogMgr.Write(April.Common.DataLinkObject,System.Exception,System.String)">
+            <summary>
+            로그를 작성한다.
+            </summary>
+            <param name="pDataLinkObject">AprCommon.DataLinkObject</param>
+            <param name="pException">Exception</param>
+            <param name="pStr">추가로 작성할 문자</param>
+            <returns></returns>
+        </member>
+        <member name="T:April.Common.DTOEventHandler">
+            <summary>
+            DTO를 받는 클래스의 이벤트 Delegate
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="T:April.Common.FormMgr">
+            <summary>
+            폼과 관련된 클래스
+            </summary>
+        </member>
+        <member name="M:April.Common.FormMgr.ShowForm(System.String,System.Boolean,April.Common.AprilFormBase,April.Common.DTOEventArgs,System.Boolean)">
+            <summary>
+            폼을 표시한다.
+            </summary>
+            <param name="pFormName">폼의 이름</param>
+            <param name="pIsModal">모달형식으로 띄울것인지 여부</param>
+            <param name="pMdiForm">MDI 폼</param>
+            <param name="pDTOEventArgs">DTOEventArgs</param>
+            <param name="pAllowDuplicated">중복으로 열 수 있는지 여부</param>
+            <returns>AprilFormBase</returns>
+        </member>
+        <member name="M:April.Common.FormMgr.Send_DTO(April.Common.DTOEventArgs)">
+            <summary>
+            모든 폼에 DTO를 전송한다.
+            </summary>
+            <param name="e">DTOEventArgs</param>
+        </member>
+        <member name="M:April.Common.FormMgr.SubscribeDTOEvent(April.Common.AprilFormBase)">
+            <summary>
+            DTO이벤트를 구독한다.
+            </summary>
+            <param name="pForm">폼 이름</param>
+        </member>
+        <member name="M:April.Common.FormMgr.IsFormOpened(System.String)">
+            <summary>
+            폼이 열려있는지 확인한다.
+            </summary>
+            <param name="pFormName">폼 이름</param>
+            <returns>열려있는지 여부</returns>
+        </member>
+        <member name="M:April.Common.FormMgr.GetOpenForm(System.String)">
+            <summary>
+            열려있는 폼을 가져온다.
+            </summary>
+            <param name="pFormName">폼 이름</param>
+            <returns>열려있는 폼</returns>
+        </member>
+        <member name="M:April.Common.FormMgr.SetNotifyIcon(April.Common.AprilFormBase)">
+            <summary>
+            NotifyIcon을 설정한다.
+            </summary>
+            <param name="pForm">폼 이름</param>
+        </member>
+        <member name="T:April.Common.FormMgrExtension">
+            <summary>
+            폼 관련 확장 메서드 클래스
+            </summary>
+        </member>
+        <member name="T:April.Common.DTOEventArgs">
+            <summary>
+            폼에 데이터를 운반하는 클래스
+            </summary>
+        </member>
+        <member name="P:April.Common.DTOEventArgs.SRCNAME">
+            <summary>
+            보내는 폼의 이름
+            </summary>
+        </member>
+        <member name="P:April.Common.DTOEventArgs.DSTNAME">
+            <summary>
+            받는 폼의 이름
+            </summary>
+        </member>
+        <member name="P:April.Common.DTOEventArgs.MESSAGE">
+            <summary>
+            메시지
+            </summary>
+        </member>
+        <member name="F:April.Common.DTOEventArgs.dataObject">
+            <summary>
+            다양한 변수를 담는 클래스
+            </summary>
+        </member>
+        <member name="M:April.Common.DTOEventArgs.#ctor">
+            <summary>
+            빈 DTO를 생성하는 생성자
+            </summary>
+        </member>
+        <member name="M:April.Common.DTOEventArgs.#ctor(System.String,System.String,System.String)">
+            <summary>
+            DTO를 생성한다.
+            </summary>
+            <param name="pSrcName">보내는 폼 이름</param>
+            <param name="pDstName">받는 폼 이름</param>
+            <param name="pMessage">메시지</param>
+        </member>
+        <member name="M:April.Common.DTOEventArgs.#ctor(System.String,System.String,System.String,System.Object[])">
+            <summary>
+            DTO를 생성한다.
+            </summary>
+            <param name="pSrcName">보내는 폼 이름</param>
+            <param name="pDstName">받는 폼 이름</param>
+            <param name="pMessage">메시지</param>
+            <param name="pData">저장할 n개의 변수</param>
+        </member>
+        <member name="M:April.Common.DTOEventArgs.Clear">
+            <summary>
+            내용을 초기화한다.
+            </summary>
+        </member>
+        <member name="T:April.Common.LocalMgr">
+            <summary>
+            언어에 따른 문자를 치환해주는 클래스 - 초기 이후부터 사용하지 않음.
+            </summary>
+        </member>
+        <member name="M:April.Common.LocalMgr.ShowSelectForm">
+            <summary>
+            언어 선택 화면을 표시한다.
+            </summary>
+            <returns>DialogResult</returns>
+        </member>
+        <member name="M:April.Common.LocalMgr.SettingUp">
+            <summary>
+            설정을 수행한다.
+            </summary>
+        </member>
+        <member name="M:April.Common.LocalMgr.GetStrings(System.String)">
+            <summary>
+            언어정보를 불러와서 세팅한다.
+            </summary>
+            <param name="pLang">언어코드</param>
+        </member>
+        <member name="T:April.Common.LocalMgrExtension">
+            <summary>
+            언어 관련 확장 메서드 클래스
+            </summary>
+        </member>
+        <member name="T:April.Common.NetMgr">
+            <summary>
+            네트워킹과 관련된 클래스
+            </summary>
+        </member>
+        <member name="M:April.Common.NetMgr.NetAvailable">
+            <summary>
+            인터넷이 존재하는지 여부를 반환한다.
+            </summary>
+            <returns>인터넷 존재여부</returns>
+        </member>
+        <member name="M:April.Common.NetMgr.InternetConnected">
+            <summary>
+            인터넷이 연결되어 있는지 확인한다.
+            </summary>
+            <returns>인터넷 연결 여부</returns>
+        </member>
+        <member name="M:April.Common.NetMgr.GetPublicIP">
+            <summary>
+            공공 IP를 반환한다.
+            </summary>
+            <returns>IP</returns>
+        </member>
+        <member name="M:April.Common.NetMgr.DownloadString(System.String)">
+            <summary>
+            문자를 받아온다.
+            </summary>
+            <param name="pUrl">URL</param>
+            <returns>받아온 문자</returns>
+        </member>
+        <member name="M:April.Common.NetMgr.DownloadFile(System.String,System.String)">
+            <summary>
+            파일을 다운로드 한다.
+            </summary>
+            <param name="pUrl">URL</param>
+            <param name="pPath">저장 경로</param>
+        </member>
+        <member name="M:April.Common.NetMgr.DownloadFileAsync(System.String,System.String)">
+            <summary>
+            파일을 비동기로 받는다.
+            </summary>
+            <param name="pUrl">URL</param>
+            <param name="pPath">저장 경로</param>
+        </member>
+        <member name="M:April.Common.NetMgr.SetSecurityProtocol">
+            <summary>
+            프로토콜을 설정한다.
+            </summary>
+        </member>
+        <member name="T:April.Common.ProcessMgr">
+            <summary>
+            프로세스 관련 클래스
+            </summary>
+        </member>
+        <member name="M:April.Common.ProcessMgr.Start(System.String,System.String)">
+            <summary>
+            프로세스를 실행한다.
+            </summary>
+            <param name="pFilePath">경로</param>
+            <param name="pArguments">시작 옵션 변수</param>
+            <returns></returns>
+        </member>
+        <member name="M:April.Common.ProcessMgr.Kill(System.String)">
+            <summary>
+            실행되고 있는 프로세스를 죽인다. 
+            </summary>
+            <param name="pProcessName">확장자를 제외한 프로세스 이름</param>
+            <returns>삭제 여부</returns>
+        </member>
+        <member name="M:April.Common.ProcessMgr.IsRunning(System.String)">
+            <summary>
+            프로세스가 실행되고 있는지 확인한다.
+            </summary>
+            <param name="pProcessName">확장자를 제외한 프로세스 이름</param>
+            <returns>실행 여부</returns>
+        </member>
+        <member name="M:April.Common.ProcessMgr.OpenExplorer(System.String)">
+            <summary>
+            탐색기를 연다, 연결 프로그램이 있으면 그 프로그램으로 파일을 연다.
+            </summary>
+            <param name="pPathOrLink">URL 주소 또는 파일 경로</param>
+        </member>
+        <member name="M:April.Common.ProcessMgr.ExecuteCmd(System.String)">
+            <summary>
+            CMD 명령어를 실행한다.
+            </summary>
+            <param name="pCommand"></param>
+        </member>
+        <member name="M:April.Common.ProcessMgr.ProcessCount(System.String)">
+            <summary>
+            실행되고 있는 프로세스의 수를 반환한다.
+            </summary>
+            <param name="pProcessName">확장자를 제외한 프로세스 이름</param>
+            <returns>개수</returns>
+        </member>
+        <member name="M:April.Common.ProcessMgr.GetProcess(System.String)">
+            <summary>
+            프로세스를 가져온다.
+            </summary>
+            <param name="pProcessName">확장자를 제외한 프로세스 이름</param>
+            <returns>Process</returns>
+        </member>
+        <member name="T:April.Common.ProcessMgrExtension">
+            <summary>
+            프로세스 관련 확장 메서드 클래스
+            </summary>
+        </member>
+        <member name="T:April.Common.RegistryMgr">
+            <summary>
+            레지스트리 관리 클래스, CurrentUser 범위 내에서 작성한다.
             </summary>
         </member>
         <member name="F:April.Common.RegistryMgr.BASE_PATH">
@@ -95,6 +1341,152 @@
             HKEY_CURRENT_USER\Software\April\어플리케이션 이름\Settings, 주로 어플리케이션 설정에 사용
             </summary>
         </member>
+        <member name="M:April.Common.RegistryMgr.CreateKey(System.String)">
+            <summary>
+            레지스크리 키를 생성한다.
+            </summary>
+            <param name="pPath">경로</param>
+            <returns>RegistryKey</returns>
+        </member>
+        <member name="M:April.Common.RegistryMgr.OpenKey(System.String,System.Boolean)">
+            <summary>
+            레지스트리를 연다.
+            </summary>
+            <param name="pPath">경로</param>
+            <param name="pWriteable">작성권한 여부</param>
+            <returns>RegistryKey</returns>
+        </member>
+        <member name="M:April.Common.RegistryMgr.DeleteKey(System.String)">
+            <summary>
+            레지스트리를 삭제한다.
+            </summary>
+            <param name="pPath">경로</param>
+        </member>
+        <member name="M:April.Common.RegistryMgr.SetValue(Microsoft.Win32.RegistryKey,System.String,System.String,Microsoft.Win32.RegistryValueKind)">
+            <summary>
+            레지스트리의 값을 생성한다.
+            </summary>
+            <param name="pRegKey">RegistryKey</param>
+            <param name="pName">값 이름</param>
+            <param name="pValue">값</param>
+            <param name="pRegValueKind">RegistryValueKind, 수정하지 말것</param>
+        </member>
+        <member name="M:April.Common.RegistryMgr.GetValue(Microsoft.Win32.RegistryKey,System.String)">
+            <summary>
+            저장된 레지스트리의 값을 가져온다.
+            </summary>
+            <param name="pRegKey">RegistryKey</param>
+            <param name="pName">값 이름</param>
+            <returns>값</returns>
+        </member>
+        <member name="M:April.Common.RegistryMgr.DeleteValue(Microsoft.Win32.RegistryKey,System.String)">
+            <summary>
+            레지스트리 값을 삭제한다.
+            </summary>
+            <param name="pRegKey">RegistryKey</param>
+            <param name="pName">값 이름</param>
+        </member>
+        <member name="M:April.Common.RegistryMgr.CreateApplicationKeyValue(System.String,System.String,System.String,Microsoft.Win32.RegistryValueKind)">
+            <summary>
+            APPLICATION_PATH에 레지스트리를 생성하고, 값을 저장한다
+            </summary>
+            <param name="pFolderName">폴더명</param>
+            <param name="pValueName">값 이름</param>
+            <param name="pValue">값</param>
+            <param name="pRegValueKind">RegistryValueKind, 수정하지 말것</param>
+        </member>
+        <member name="M:April.Common.RegistryMgr.GetApplicationKeyValue(System.String,System.String)">
+            <summary>
+            APPLICATION_PATH에 있는 값을 가져온다.
+            </summary>
+            <param name="pFolderName">폴더명</param>
+            <param name="pValueName">값 이름</param>
+            <returns>값</returns>
+        </member>
+        <member name="M:April.Common.RegistryMgr.DeleteApplicationKeyValue(System.String,System.String)">
+            <summary>
+            APPLICATION_PATH에 있는 값을 삭제한다.
+            </summary>
+            <param name="pFolderName">폴더명</param>
+            <param name="pValueName">값 이름</param>
+        </member>
+        <member name="M:April.Common.RegistryMgr.SetLocalLang(System.String)">
+            <summary>
+            언어설정을 저장한다.
+            </summary>
+            <param name="pLang">언어코드</param>
+        </member>
+        <member name="M:April.Common.RegistryMgr.GetLocalLang">
+            <summary>
+            저장된 언어를 불러온다.
+            </summary>
+            <returns>언어코드</returns>
+        </member>
+        <member name="T:April.Common.AprSecure">
+            <summary>
+            암호화/복호화 클래스
+            </summary>
+        </member>
+        <member name="M:April.Common.AprSecure.Encrypt(System.String,System.String,System.Int32)">
+            <summary>
+            값을 암호화 한다.
+            </summary>
+            <param name="pStr">암호화 할 값</param>
+            <param name="pPassword">비밀번호</param>
+            <param name="pRpt">반복횟수, 높을수록 보안성에 좋다. 수정하지 말것</param>
+            <returns>암호화된 값</returns>
+        </member>
+        <member name="M:April.Common.AprSecure.Decrypt(System.String,System.String,System.Int32)">
+            <summary>
+            값을 복호화 한다.
+            </summary>
+            <param name="pStr">암호화된 값</param>
+            <param name="pPassword">비밀번호</param>
+            <param name="pRpt">수정하지 말것</param>
+            <returns></returns>
+        </member>
+        <member name="T:April.Common.StopwatchMgr">
+            <summary>
+            스탑워치 클래스
+            </summary>
+        </member>
+        <member name="M:April.Common.StopwatchMgr.Start">
+            <summary>
+            스탑워치를 시작한다.
+            </summary>
+        </member>
+        <member name="M:April.Common.StopwatchMgr.Stop">
+            <summary>
+            스탑워치를 중지한다.
+            </summary>
+        </member>
+        <member name="M:April.Common.StopwatchMgr.Reset">
+            <summary>
+            스탑워치를 리셋한다.
+            </summary>
+        </member>
+        <member name="M:April.Common.StopwatchMgr.Restart">
+            <summary>
+            스탑워치를 재시작한다.
+            </summary>
+        </member>
+        <member name="M:April.Common.StopwatchMgr.GetElapsedTime">
+            <summary>
+            소요된 시간을 반환한다.
+            </summary>
+            <returns>TimeSpan</returns>
+        </member>
+        <member name="M:April.Common.StopwatchMgr.GetTime">
+            <summary>
+            쇼요된 일, 시간, 분, 초 ,밀리세컨드를 붙여서 반환한다.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:April.Common.WinAPI">
+            <summary>
+            윈도우 API 관련 클래스
+            </summary>
+        </member>
         <member name="M:April.Common.WinAPI.RegisterHotKey(System.IntPtr,System.Int32,April.Common.WinAPI.KeyModifiers,System.Windows.Forms.Keys)">
             <summary>
             단축키 등록
@@ -112,6 +1504,44 @@
             </summary>
             <param name="hWnd">this.Handle</param>
             <param name="id">등록한 HotKey</param>
+            <returns></returns>
+        </member>
+        <member name="T:April.Common.eCsv">
+            <summary>
+            Csv 엔티티
+            </summary>
+        </member>
+        <member name="T:April.Common.eDownloadFile">
+            <summary>
+            파일 다운로드 엔티티
+            </summary>
+        </member>
+        <member name="P:April.Common.eDownloadFile.url">
+            <summary>
+            URL 주소
+            </summary>
+        </member>
+        <member name="P:April.Common.eDownloadFile.savePath">
+            <summary>
+            저장 경로
+            </summary>
+        </member>
+        <member name="M:April.Common.eDownloadFile.#ctor(System.String,System.String)">
+            <summary>
+            생성자, 데이터를 세팅한다.
+            </summary>
+            <param name="pUrl">URL</param>
+            <param name="pSavePath">저장위치</param>
+        </member>
+        <member name="M:April.Common.eDownloadFile.Clear">
+            <summary>
+            URL, 저장경로를 초기화한다.
+            </summary>
+        </member>
+        <member name="M:April.Common.eDownloadFile.GetFileName">
+            <summary>
+            파일 이름을 번환한다.
+            </summary>
             <returns></returns>
         </member>
         <member name="F:April.Common.frm_CM_AprilScriptMgr.components">
