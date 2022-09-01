@@ -36,8 +36,9 @@
             this.btnCheckUpdate = new System.Windows.Forms.Button();
             this.btnDownload = new System.Windows.Forms.Button();
             this.btnSetting = new System.Windows.Forms.Button();
-            this.aprilMDITabControl1 = new April.Common.AprilMDITabControl();
             this.btnChangeLog = new System.Windows.Forms.Button();
+            this.aprilMDITabControl1 = new April.Common.AprilMDITabControl();
+            this.btnExtension = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -82,6 +83,7 @@
             this.tableLayoutPanel1.Controls.Add(this.btnDownload, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnSetting, 6, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnChangeLog, 5, 0);
+            this.tableLayoutPanel1.Controls.Add(this.btnExtension, 4, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(4, 4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -143,17 +145,6 @@
             this.btnSetting.UseVisualStyleBackColor = true;
             this.btnSetting.Click += new System.EventHandler(this.btnSetting_Click);
             // 
-            // aprilMDITabControl1
-            // 
-            this.aprilMDITabControl1.AllowDrop = true;
-            this.aprilMDITabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.aprilMDITabControl1.Font = new System.Drawing.Font("맑은 고딕", 10F, System.Drawing.FontStyle.Bold);
-            this.aprilMDITabControl1.Location = new System.Drawing.Point(0, 130);
-            this.aprilMDITabControl1.Name = "aprilMDITabControl1";
-            this.aprilMDITabControl1.SelectedIndex = 0;
-            this.aprilMDITabControl1.Size = new System.Drawing.Size(810, 508);
-            this.aprilMDITabControl1.TabIndex = 2;
-            // 
             // btnChangeLog
             // 
             this.btnChangeLog.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -171,6 +162,34 @@
             this.btnChangeLog.UseVisualStyleBackColor = true;
             this.btnChangeLog.Click += new System.EventHandler(this.btnChangeLog_Click);
             // 
+            // aprilMDITabControl1
+            // 
+            this.aprilMDITabControl1.AllowDrop = true;
+            this.aprilMDITabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.aprilMDITabControl1.Font = new System.Drawing.Font("맑은 고딕", 10F, System.Drawing.FontStyle.Bold);
+            this.aprilMDITabControl1.Location = new System.Drawing.Point(0, 130);
+            this.aprilMDITabControl1.Name = "aprilMDITabControl1";
+            this.aprilMDITabControl1.SelectedIndex = 0;
+            this.aprilMDITabControl1.Size = new System.Drawing.Size(810, 508);
+            this.aprilMDITabControl1.TabIndex = 2;
+            // 
+            // btnExtension
+            // 
+            this.btnExtension.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnExtension.FlatAppearance.BorderSize = 0;
+            this.btnExtension.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExtension.Font = new System.Drawing.Font("맑은 고딕", 10F, System.Drawing.FontStyle.Bold);
+            this.btnExtension.Image = ((System.Drawing.Image)(resources.GetObject("btnExtension.Image")));
+            this.btnExtension.Location = new System.Drawing.Point(459, 3);
+            this.btnExtension.Name = "btnExtension";
+            this.btnExtension.Size = new System.Drawing.Size(108, 116);
+            this.btnExtension.TabIndex = 9;
+            this.btnExtension.Text = "확장 다운로드";
+            this.btnExtension.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnExtension.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnExtension.UseVisualStyleBackColor = true;
+            this.btnExtension.Click += new System.EventHandler(this.btnExtension_Click);
+            // 
             // mdiMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -180,12 +199,9 @@
             this.Controls.Add(this.aprilMDITabControl1);
             this.Controls.Add(this.panel1);
             this.DoubleBuffered = true;
-            this.Font = new System.Drawing.Font("맑은 고딕", 10F);
             this.IsMdiContainer = true;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "mdiMain";
-            this.ShowIcon = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Title";
             this.Load += new System.EventHandler(this.mdiMain_Load);
             this.panel1.ResumeLayout(false);
@@ -205,6 +221,7 @@
         private System.Windows.Forms.Button btnSetting;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Button btnChangeLog;
+        private System.Windows.Forms.Button btnExtension;
     }
 }
 

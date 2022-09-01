@@ -226,5 +226,23 @@ namespace AprilManager
                 LogMgr.Write(AprCommon.DataLinkObject, ex);
             }
         }
+
+        private void btnExtension_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!NetMgr.InternetConnected())
+                {
+                    MsgBoxError("인터넷에 연결되지 않아 해당 기능을 사용할 수 없습니다.");
+                    return;
+                }
+
+                FormMgr.ShowForm("frm_CM_Extension", false, this);
+            }
+            catch (Exception ex)
+            {
+                LogMgr.Write(AprCommon.DataLinkObject, ex);
+            }
+        }
     }
 }
