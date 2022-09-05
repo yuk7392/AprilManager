@@ -177,7 +177,6 @@
             this.btnExtension.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnExtension.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnExtension.UseVisualStyleBackColor = true;
-            this.btnExtension.Visible = false;
             this.btnExtension.Click += new System.EventHandler(this.btnExtension_Click);
             // 
             // aprilMDITabControl1
