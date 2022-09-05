@@ -684,11 +684,12 @@
             <param name="pDisplayText">표시되는 텍스트</param>
             <param name="pValue">값</param>
         </member>
-        <member name="M:April.Common.AprilComboBox.RemoveItem(System.String)">
+        <member name="M:April.Common.AprilComboBox.RemoveItem(System.String,System.Boolean)">
             <summary>
             항목을 삭제한다.
             </summary>
             <param name="pDisplayText">표시되는 항목의 이름</param>
+            <param name="pExactWordFlag">대/소문자를 구분하여 삭제</param>
         </member>
         <member name="M:April.Common.AprilComboBox.SetSelectedItem(System.String)">
             <summary>
