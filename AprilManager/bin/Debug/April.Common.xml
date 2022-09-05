@@ -227,6 +227,11 @@
             April Script Manager의 확장메서드 클래스
             </summary>
         </member>
+        <member name="T:April.Common.AprDaemon">
+            <summary>
+            April.Common 데몬
+            </summary>
+        </member>
         <member name="T:April.Common.AprParser">
             <summary>
             다양한 파싱을 지원하는 클래스
@@ -412,6 +417,27 @@
             <param name="pString">문자가 포함된 대상</param>
             <param name="pReplaceString">변경할 문자</param>
             <returns></returns>
+        </member>
+        <member name="M:April.Common.AprCommon.ImageToByteArray(System.String)">
+            <summary>
+            이미지를 바이트로 변환한다.
+            </summary>
+            <param name="pPath">이미지 경로</param>
+            <returns>byte[]</returns>
+        </member>
+        <member name="M:April.Common.AprCommon.ImageToByteArray(System.Drawing.Image)">
+            <summary>
+            이미지를 바이트로 변환한다.
+            </summary>
+            <param name="pImage">이미지</param>
+            <returns>byte[]</returns>
+        </member>
+        <member name="M:April.Common.AprCommon.ByteArrayToImage(System.Byte[])">
+            <summary>
+            바이트를 이미지로 변환한다.
+            </summary>
+            <param name="pArray">바이트 배열</param>
+            <returns>Image</returns>
         </member>
         <member name="T:April.Common.CommonExtension">
             <summary>
@@ -610,6 +636,33 @@
             Required method for Designer support - do not modify
             the contents of this method with the code editor.
             </summary>
+        </member>
+        <member name="T:April.Common.AprCustomControl">
+            <summary>
+            커스텀 컨트롤을 제작하는 데 사용하는 클래스
+            </summary>
+        </member>
+        <member name="M:April.Common.AprCustomControl.MeasureText(System.String,System.Drawing.Font)">
+            <summary>
+            글자 크기를 폰트에 맞춰 측정한다.
+            </summary>
+            <param name="pText">글자</param>
+            <param name="pFont">폰트</param>
+            <returns>Size</returns>
+        </member>
+        <member name="T:April.Common.AprilCustomControlExtension">
+            <summary>
+            커스텀 컨트롤 제작 관련 확장 메서드 클래스
+            </summary>
+        </member>
+        <member name="M:April.Common.AprilCustomControlExtension.SetCoordinate(System.Drawing.Rectangle,System.Int32,System.Int32)">
+            <summary>
+            사각형의 X,Y 좌표를 설정한다.
+            </summary>
+            <param name="pRect">사각형</param>
+            <param name="x">변경할 x 좌표</param>
+            <param name="y">변경할 y 좌표</param>
+            <returns>변경된 사각형</returns>
         </member>
         <member name="M:April.Common.AprilMDITabControl.Add(April.Common.AprilFormBase,System.Boolean)">
             <summary>
@@ -972,9 +1025,23 @@
             <param name="pContent">내용</param>
             <param name="pOverwrite">덮어쓰기 여부</param>
         </member>
+        <member name="M:April.Common.FileMgr.Write(System.String,System.Byte[])">
+            <summary>
+            파일을 바이트로 작성한다.
+            </summary>
+            <param name="pPath">파일 경로</param>
+            <param name="pContent">내용</param>
+        </member>
         <member name="M:April.Common.FileMgr.Open(System.String)">
             <summary>
             파일의 내용을 반환한다.
+            </summary>
+            <param name="pPath">파일 경로</param>
+            <returns>파일 내용</returns>
+        </member>
+        <member name="M:April.Common.FileMgr.OpenByte(System.String)">
+            <summary>
+            바이트 파일의 내용을 반환한다.
             </summary>
             <param name="pPath">파일 경로</param>
             <returns>파일 내용</returns>
