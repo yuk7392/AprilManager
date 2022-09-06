@@ -29,7 +29,6 @@ namespace AprilManager
 
             this.Text = "April Manager [ App : " + AprCommon.DataLinkObject.APPLICATION_VERSION + ", DLL : " + AprCommon.DataLinkObject.DLL_VERSION + " ]";
             FormMgr.SubscribeDTOEvent(this);
-            btnExtension.Visible = false;
         }
 
         public override void Received_DTO(DTOEventArgs e)
