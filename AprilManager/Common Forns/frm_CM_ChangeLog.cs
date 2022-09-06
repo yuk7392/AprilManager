@@ -25,6 +25,8 @@ namespace AprilManager
             List<string> context = new List<string>();
 
             AprParser.ParseSharpContext(NetMgr.DownloadString(URL_DLLCHANGELOG), version, context);
+            version.Reverse();
+            context.Reverse();
 
             for (int i = 0; i < version.Count; i++)
             {
@@ -35,6 +37,8 @@ namespace AprilManager
             context.Clear();
 
             AprParser.ParseSharpContext(NetMgr.DownloadString(URL_PROGRAMCHANGELOG), version, context);
+            version.Reverse();
+            context.Reverse();
 
             for (int i = 0; i < version.Count; i++)
             {
