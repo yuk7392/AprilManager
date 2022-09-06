@@ -403,12 +403,13 @@
             <param name="pDataGridView">DataGridView</param>
             <returns>DataTable</returns>
         </member>
-        <member name="M:April.Common.AprCommon.MoveGridRow(System.Windows.Forms.DataGridView,April.Common.MoveGridType)">
+        <member name="M:April.Common.AprCommon.MoveGridRow(System.Windows.Forms.DataGridView,April.Common.MoveGridType,System.Data.DataTable)">
             <summary>
             실제 DataSource를 수정하여 그리드의 Row위치를 옮긴다.
             </summary>
             <param name="pDataGridView">DataGridView</param>
             <param name="pMoveGridType">MoveGridType</param>
+            <param name="pReplaceDataTable">만약 DataSource인 DataTable을 사용할 경우, 갱신할 DataTable</param>
         </member>
         <member name="M:April.Common.AprCommon.ReplaceBrText(System.String,System.String)">
             <summary>
