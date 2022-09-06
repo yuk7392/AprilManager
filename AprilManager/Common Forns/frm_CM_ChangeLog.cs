@@ -1,13 +1,6 @@
-﻿using System;
+﻿using April.Common;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using April.Common;
 
 namespace AprilManager
 {
@@ -78,6 +71,9 @@ namespace AprilManager
             {
                 cbDllVer.SetSelectedItem(AprCommon.DataLinkObject.DLL_VERSION);
                 cbProgramVer.SetSelectedItem(AprCommon.DataLinkObject.APPLICATION_VERSION);
+
+                tbDllLog.Text = cbDllVer.SelectedValue.ToString();
+                tbProgramLog.Text = cbProgramVer.SelectedValue.ToString();
             }
             catch (Exception ex)
             {
